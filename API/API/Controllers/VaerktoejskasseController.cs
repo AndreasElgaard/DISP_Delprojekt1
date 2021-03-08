@@ -10,7 +10,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VearktoejskasseController : ControllerBase
+    public class VaerktoejskasseController : ControllerBase
     {
         // GET: api/<ToolboxController>
         [HttpGet]

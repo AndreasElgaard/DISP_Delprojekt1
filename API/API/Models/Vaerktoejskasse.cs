@@ -7,19 +7,18 @@ namespace API.Models
 {
     public class Vaerktoejskasse
     {
-        public int VTKid { get; set; }
+        public long id { get; set; }
 
-        public DateTime VTKAnskaffet { get; set; }
+        public DateTime Anskaffet { get; set; }
 
-        public string VTKFabrikant { get; set; }
+        public string Fabrikant { get; set; }
 
-        public string VTKFarve { get; set; }
+        public string Farve { get; set; }
 
-        public Haandvaerker VTKEjesAF { get; set; }
+        public Haandvaerker EjesAF { get; set; }
 
-        public List<Vaerktoej> VTKVearktoejer { get; set; }
+        public List<Vaerktoej> Vearktoejer { get; set; }
 
-        public string VTKModel { get; set; }
-
+        public string Model { get; set; }
     }
 }

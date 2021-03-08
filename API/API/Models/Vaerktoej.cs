@@ -7,18 +7,12 @@ namespace API.Models
 {
     public class Vaerktoej
     {
-        public Vaerktoej()
-        {
-            
-        }
-
+        public long id { get; set; }
+        public String LiggerIVTK { get; set; }
         public DateTime Anskaffet { get; set; }
-        public String EjesAf { get; set; }
         public String Fabrikat { get; set; }
-        public String Farve { get; set; }
-        public String Model { get; set; }
-        public long Serienummer { get; set; }
-        public long ID { get; set; }
-
+        public string Model { get; set; }
+        public long SerieNummer { get; set; }
+        public string Typy { get; set; }
     }
 }

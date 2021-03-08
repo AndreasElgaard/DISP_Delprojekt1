@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    public class ToolController : Controller
+    public class Vearktoej : Controller
     {
-        // GET: Vaerktoej
+        // GET: Vearktoej
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Vaerktoej/Details/5
+        // GET: Vearktoej/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Vaerktoej/Create
+        // GET: Vearktoej/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Vaerktoej/Create
+        // POST: Vearktoej/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +42,13 @@ namespace API.Controllers
             }
         }
 
-        // GET: Vaerktoej/Edit/5
+        // GET: Vearktoej/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Vaerktoej/Edit/5
+        // POST: Vearktoej/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +63,13 @@ namespace API.Controllers
             }
         }
 
-        // GET: Vaerktoej/Delete/5
+        // GET: Vearktoej/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Vaerktoej/Delete/5
+        // POST: Vearktoej/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

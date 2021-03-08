@@ -7,14 +7,13 @@ namespace API.Models
 {
     public class Haandvaerker
     {
-        public Haandvaerker()
-        {
-            
-        }
-        public String Fornavn { get; set; }
-        public String Efternavn { get; set; }
+       
+        public string Fornavn { get; set; }
+        public string Efternavn { get; set; }
         public DateTime Ansættelsesdato { get; set; }
-        public String Fagområde { get;  set; }
-        public long ID { get; set; }
+        public string Fagområde { get; set; }
+        public long ID { get; set; }a
+
+        public Vaerktoejskasse Vaerktoejskasse { get; set; }
     }
 }
