@@ -12,7 +12,7 @@ namespace API.Models
         public string Efternavn { get; set; }
         public DateTime Ansættelsesdato { get; set; }
         public string Fagområde { get; set; }
-        public long ID { get; set; }a
+        public long ID { get; set; }
 
         public Vaerktoejskasse Vaerktoejskasse { get; set; }
     }
