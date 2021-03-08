@@ -10,35 +10,35 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VaerktoejskasseController : ControllerBase
+    public class VearktoejskasseController : ControllerBase
     {
-        // GET: api/<VaerktoejskasseController>
+        // GET: api/<ToolboxController>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<VaerktoejskasseController>/5
+        // GET api/<ToolboxController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value"; 
         }
 
-        // POST api/<VaerktoejskasseController>
+        // POST api/<ToolboxController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<VaerktoejskasseController>/5
+        // PUT api/<ToolboxController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<VaerktoejskasseController>/5
+        // DELETE api/<ToolboxController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
