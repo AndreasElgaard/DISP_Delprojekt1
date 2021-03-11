@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
+    "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
+    "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
         "projectName": "Frontend_Project",
-        "projectPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
-        "packagesPath": "C:\\Users\\bella\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
+        "projectPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bella\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -45,6 +40,12 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"

@@ -10,14 +10,16 @@ namespace API.DataBaseContext
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Haandvaerker> Haandværkere { get; set; }
-        public DbSet<Vaerktoej> Vaerktøjer { get; set; }
-        public DbSet<Vaerktoejskasse> Vaerktoejskasser { get; set; }
-
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Data Source=Andreas-Laptop;Initial Catalog=DISP_Delprojekt1;Integrated Security=True");
+        //}
 
-
+        public DbSet<Haandvaerker> Haandværkere { get; set; }
+        public DbSet<Vaerktoej> Vaerktøjer { get; set; }
+        public DbSet<Vaerktoejskasse> Vaerktoejskasser { get; set; }
     }
 }

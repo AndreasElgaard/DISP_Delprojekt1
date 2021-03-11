@@ -21,6 +21,7 @@ public abstract class Repository<T> : IRepository<T> where T : class
     public async Task Add(T entity)
     {
         await _dbSet.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 
     public async Task AddRange(IEnumerable<T> entities)
