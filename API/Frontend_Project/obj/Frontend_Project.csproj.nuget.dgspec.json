@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
+    "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
+    "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
         "projectName": "Frontend_Project",
-        "projectPath": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
-        "packagesPath": "C:\\Users\\MJO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
+        "projectPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MJO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,12 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
@@ -63,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
