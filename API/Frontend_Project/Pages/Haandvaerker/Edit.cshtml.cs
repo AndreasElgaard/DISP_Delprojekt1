@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -11,19 +10,38 @@ using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-
 namespace Frontend_Project.Pages.Haandvaerker
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         public HaandvaerkerModel LocalModel { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:3000");
+
+                var response = client.GetAsync("/API");
+
+                var json = await response.Result.Content.ReadAsStringAsync();
+
+                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
+
+                LocalModel = result;
+
+                if (LocalModel == null)
+                {
+                    return RedirectToPage("/Index");
+                }
+
+            }
+
+            return Page();
 
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid == false)
             {
@@ -32,7 +50,7 @@ namespace Frontend_Project.Pages.Haandvaerker
 
             //Lav modellen om til en JSON string
             string jsonObjekt = JsonSerializer.Serialize(LocalModel);
-            var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
+            var content = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
             //Post modellen til API'et
             using (var client = new HttpClient())
@@ -49,6 +67,6 @@ namespace Frontend_Project.Pages.Haandvaerker
 
             return RedirectToPage("/Index");
         }
-
     }
 }
+

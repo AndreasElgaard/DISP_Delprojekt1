@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using API.DataBaseContext;
 
 public abstract class Repository<T> : IRepository<T> where T : class
 {
@@ -10,7 +11,6 @@ public abstract class Repository<T> : IRepository<T> where T : class
     public GenericRepository(ApplicationContext context)
     {
         _context = context;
-
     }
 
     public void Add(T entity)
