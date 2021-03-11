@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
+    "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
+    "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "projectUniqueName": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
         "projectName": "Frontend_Project",
-        "projectPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
-        "packagesPath": "C:\\Users\\bella\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
+        "projectPath": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+        "packagesPath": "C:\\Users\\MJO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bella\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\MJO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -68,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

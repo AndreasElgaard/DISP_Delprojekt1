@@ -1,13 +1,15 @@
+using API.DataBaseContext;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
 using System.Threading.Tasks;
 
 public abstract class Repository<T> : IRepository<T> where T : class
 {
     protected readonly ApplicationContext _context;
 
-    public GenericRepository(ApplicationContext context)
+    public Repository(ApplicationContext context)
     {
         _context = context;
 
