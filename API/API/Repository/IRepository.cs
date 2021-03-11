@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 public interface IRepository<T> where T : class
 {
-    T GetById(int id);
-    IEnumerable<T> GetAll();
+    Task <T> GetById(int id);
+    Task <IEnumerable<T>> GetAll();
     IEnumerable<T> Find(Expression<Func<T, bool>> expression);
-    void Add(T entity);
-    void AddRange(IEnumerable<T> entities);
-    void Remove(T entity);
-    void RemoveRange(IEnumerable<T> entities);
+    Task Add(T entity);
+    Task AddRange(IEnumerable<T> entities);
+    Task Remove(T entity);
+    Task RemoveRange(IEnumerable<T> entities);
+    Task Update(T entity);
+    Task Remove(object id);
 }

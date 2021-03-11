@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Repository;
+using API.Models;
+using Microsoft.AspNetCore.Http;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,37 +15,94 @@ namespace API.Controllers
     [ApiController]
     public class HaandvaerkerController : ControllerBase
     {
+        private readonly IHaandVaerkerRepository _repository;
+
+        public HaandvaerkerController(IHaandVaerkerRepository repository)
+        {
+            _repository = repository;
+        }
 
         // GET: api/<HaandvaerkerController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<Haandvaerker>>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = await _repository.GetAll();
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
         }
 
         // GET api/<HaandvaerkerController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Haandvaerker>> GetById(int id)
         {
-            return "value";
+            var result = await _repository.GetById(id);
+
+            if (result == null)
+                return NoContent();
+
+            return Ok(result);
         }
 
         // POST api/<HaandvaerkerController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Post([FromBody] Haandvaerker haandvaerker)
         {
+            try
+            {
+                await _repository.Add(haandvaerker);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+
         }
 
         // PUT api/<HaandvaerkerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Put([FromBody] Haandvaerker haandvaerker)
         {
+            try
+            {
+                await _repository.Update(haandvaerker);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
 
         // DELETE api/<HaandvaerkerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Delete(int id)
         {
+            try
+            {
+                await _repository.Remove(id);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
     }
 }
