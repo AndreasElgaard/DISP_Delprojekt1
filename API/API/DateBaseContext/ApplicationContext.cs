@@ -17,5 +17,7 @@ namespace API.DataBaseContext
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
+
+
     }
 }

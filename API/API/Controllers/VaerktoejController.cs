@@ -1,87 +1,105 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using API.Repository;
+using API.Models;
 
 namespace API.Controllers
 {
-    public class Vearktoej : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class VearktoejController : ControllerBase
     {
-        // GET: Vearktoej
-        public ActionResult Index()
+
+        private readonly IVaerkToejRepository _repository;
+
+        public VearktoejController(IVaerkToejRepository repository)
         {
-            return View();
+            _repository = repository;
+        }
+
+        // GET: Vearktoej
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<Vaerktoej>>> Get()
+        {
+            var result = await _repository.GetAll();
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
         }
 
         // GET: Vearktoej/Details/5
-        public ActionResult Details(int id)
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Vaerktoej>> GetById(int id)
         {
-            return View();
+            var result = await _repository.GetById(id);
+
+            if (result == null)
+                return NoContent();
+
+            return Ok(result);
         }
 
         // GET: Vearktoej/Create
-        public ActionResult Create()
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Post([FromBody] Vaerktoej vaerktoej)
         {
-            return View();
+            try
+            {
+                await _repository.Add(vaerktoej);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+
         }
 
         // POST: Vearktoej/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Put([FromBody] Vaerktoej vaerktoej)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _repository.Update(vaerktoej);
             }
             catch
             {
-                return View();
+                return BadRequest();
             }
+
+            return Ok();
         }
 
         // GET: Vearktoej/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Vearktoej/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Delete(int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _repository.Remove(id);
             }
             catch
             {
-                return View();
+                return BadRequest();
             }
-        }
 
-        // GET: Vearktoej/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Vearktoej/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return Ok();
         }
     }
 }

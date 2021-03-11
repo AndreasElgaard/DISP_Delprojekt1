@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using API.DataBaseContext;
+using API.Repository;
 
 namespace API
 {
@@ -32,6 +33,14 @@ namespace API
             services.AddControllers();
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<IHaandVaerkerRepository, HaandVaerkerRepository>();
+            services.AddTransient<IVaerkToejRepository, VaerkToejRepository>();
+            services.AddTransient<IVaerkToejsKasseRepository, VaerkToejsKasseRepository>();
+
+
           
             services.AddSwaggerGen(c =>
             {

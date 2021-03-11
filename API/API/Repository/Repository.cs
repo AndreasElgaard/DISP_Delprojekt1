@@ -1,50 +1,97 @@
+using API.DataBaseContext;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using API.DataBaseContext;
 
 public abstract class Repository<T> : IRepository<T> where T : class
 {
     protected readonly ApplicationContext _context;
+    protected readonly DbSet<T> _dbSet;
 
-    public GenericRepository(ApplicationContext context)
+    public Repository(ApplicationContext context)
     {
         _context = context;
+        _dbSet = _context.Set<T>();
+
     }
 
-    public void Add(T entity)
+    public async Task Add(T entity)
     {
-        _context.Set<T>().Add(entity);
+        await _dbSet.AddAsync(entity);
     }
 
-    public void AddRange(IEnumerable<T> entities)
+    public async Task AddRange(IEnumerable<T> entities)
     {
-        _context.Set<T>().AddRange(entities);
+        await _dbSet.AddRangeAsync(entities);
     }
 
     public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
     {
-        return _context.Set<T>().Where(expression);
+
+        var result = _dbSet.Where(expression);
+
+        if (result == null)
+            return null;
+
+        return result;
     }
 
-    public IEnumerable<T> GetAll()
+    public async Task<IEnumerable<T>> GetAll()
     {
-        return _context.Set<T>().ToList();
+        var result =  await _dbSet.ToListAsync();
+
+        if (result == null)
+            return null;
+
+        return result;
     }
 
-    public T GetById(int id)
+    public async Task<T> GetById(int id)
     {
-        return _context.Set<T>().Find(id);
+        var result = await _dbSet.FindAsync(id);
+
+        if (result == null)
+            return null;
+
+        return result;
     }
 
-    public void Remove(T entity)
+    public async Task Remove(T entity)
     {
-        _context.Set<T>().Remove(entity);
+        if (_context.Entry(entity).State == EntityState.Detached)
+        {
+            _dbSet.Attach(entity);
+        }
+
+        _dbSet.Remove(entity);
+
+        await _context.SaveChangesAsync();
     }
 
-    public void RemoveRange(IEnumerable<T> entities)
+    public async Task RemoveRange(IEnumerable<T> entities)
     {
-        _context.Set<T>().RemoveRange(entities);
+        _dbSet.RemoveRange(entities);
+
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task Remove(object id)
+    {
+        T entityToDelete = await _dbSet.FindAsync(id);
+
+        _dbSet.Remove(entityToDelete);
+
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task Update(T entity)
+    {
+        _dbSet.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
+
+        await _context.SaveChangesAsync();
     }
 }

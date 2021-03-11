@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public interface IHaandVaerkerRepository
+    public interface IHaandVaerkerRepository : IRepository<Haandvaerker>
     {
         //specific queries for haandværker repo what is not included in the base class
         void Save();
