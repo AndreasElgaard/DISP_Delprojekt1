@@ -1,46 +1,41 @@
 ﻿using API.DataBaseContext;
 using System;
+using API.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class VaerkToejRepository : IVaerkToejRepository
+    public class VaerkToejRepository : Repository<Vaerktoej>, IVaerkToejRepository, IDisposable
     {
-        private readonly ApplicationContext context;
+        private bool disposed = false;
 
-        public VaerkToejRepository(ApplicationContext context)
+        public VaerkToejRepository(ApplicationContext context) : base(context)
         {
-            this.context = context;
+    
         }
 
-        public void DeleteVaerkToej(int customerId)
+       
+        protected virtual void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
         }
 
-        public IEnumerable<Vaerktoej> GetVaerkToejer()
+        public void Dispose()
         {
-            throw new NotImplementedException();
-        }
-
-        public Haandvaerker GetVaerkToejrByID(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertVaerkToej(Vaerktoej customer)
-        {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateVaerkToej(Vaerktoej customer)
         {
             throw new NotImplementedException();
         }

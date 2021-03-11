@@ -12,6 +12,7 @@ namespace API.Controllers
     [ApiController]
     public class HaandvaerkerController : ControllerBase
     {
+
         // GET: api/<HaandvaerkerController>
         [HttpGet]
         public IEnumerable<string> Get()

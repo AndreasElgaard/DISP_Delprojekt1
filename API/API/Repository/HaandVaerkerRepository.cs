@@ -8,41 +8,34 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class HaandVaerkerRepository : IHaandVaerkerRepository
+    public class HaandVaerkerRepository : Repository<Haandvaerker>, IHaandVaerkerRepository, IDisposable
     {
-        private readonly ApplicationContext context;
-
-        public HaandVaerkerRepository(ApplicationContext context)
+        public HaandVaerkerRepository(ApplicationContext context) : base(context)
         {
-            this.context = context;
+
         }
 
-        public void DeleteHaandVaerker(int customerId)
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
         }
 
-        public Haandvaerker GetHaandVaerkerByID(int customerId)
+        public void Dispose()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable GetHaandVaerkere()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertHaandVaerker(Haandvaerker customer)
-        {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHaandVaerker(Haandvaerker customer)
         {
             throw new NotImplementedException();
         }

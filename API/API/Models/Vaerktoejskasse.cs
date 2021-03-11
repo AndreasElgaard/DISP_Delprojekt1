@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,7 +8,26 @@ namespace API.Models
 {
     public class Vaerktoejskasse
     {
-        public long id { get; set; }
+        public Vaerktoejskasse()
+        {
+            Vaerktoej = new HashSet<Vaerktoej>();
+        }
+
+        [Key]
+        public int VTKId { get; set; }
+        public DateTime VTKAnskaffet { get; set; }
+        public string VTKFabrikat { get; set; }
+        public int? VTKEjesAf { get; set; }
+        public string VTKModel { get; set; }
+        public string VTKSerienummer { get; set; }
+        public string VTKFarve { get; set; }
+        public Haandvaerker EjesAfNavigation { get; set; }
+        public HashSet<Vaerktoej> Vaerktoej { get; set; }
+    }
+}
+
+/*
+         public long id { get; set; }
 
         public DateTime Anskaffet { get; set; }
 
@@ -15,10 +35,9 @@ namespace API.Models
 
         public string Farve { get; set; }
 
+        public string Model { get; set; }
+
         public Haandvaerker EjesAF { get; set; }
 
         public List<Vaerktoej> Vearktoejer { get; set; }
-
-        public string Model { get; set; }
-    }
-}
+ */

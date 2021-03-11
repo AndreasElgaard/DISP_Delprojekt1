@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    
     public interface IHaandVaerkerRepository
     {
-        IEnumerable GetHaandVaerkere();
-        Haandvaerker GetHaandVaerkerByID(int customerId);
-        void InsertHaandVaerker(Haandvaerker customer);
-        void DeleteHaandVaerker(int customerId);
-        void UpdateHaandVaerker(Haandvaerker customer);
+        //specific queries for haandværker repo what is not included in the base class
         void Save();
     }
 }

@@ -6,41 +6,33 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class VaerkToejsKasseRepository : IVaerkToejsKasseRepository
+    public class VaerkToejsKasseRepository : Repository<Vaerktoejskasse>, IVaerkToejsKasseRepository, IDisposable
     {
-        private readonly ApplicationContext context;
+        private bool disposed = false;
 
-        public VaerkToejsKasseRepository(ApplicationContext context)
+        public VaerkToejsKasseRepository(ApplicationContext context) : base(context)
         {
-            this.context = context;
         }
 
-        public void DeleteVaerkToejsKasse(int customerId)
+        protected virtual void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
         }
 
-        public VaerktoejsKasse GetVaerkToejsKasseByID(int customerId)
+        public void Dispose()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<VaerktoejsKasse> GetVVaerkToejsKasser()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertVaerkToejsKassej(VaerktoejsKasse customer)
-        {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateVVaerkToejsKasse(VaerktoejsKasse customer)
         {
             throw new NotImplementedException();
         }
