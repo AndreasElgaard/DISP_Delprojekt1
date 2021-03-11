@@ -32,10 +32,12 @@ namespace API
 
             services.AddControllers();
 
+
+
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            //services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IHaandVaerkerRepository, HaandVaerkerRepository>();
             services.AddTransient<IVaerkToejRepository, VaerkToejRepository>();
             services.AddTransient<IVaerkToejsKasseRepository, VaerkToejsKasseRepository>();
