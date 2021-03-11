@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BfvcmTG66nFhQZ9hYUxIsEByRpALgbzc5/kYbw8c26rlqcFWqtLfZjU+l6R2zkbyfSYg+UJti4oSafb6hdnWfg==",
+  "dgSpecHash": "5in5ckf6HQzr8S0wnXttezXMrPQs9F0RnxWOb0GBfzhEPXpiw8SAZ05sxwwMOO3mS0SDcDz9eTjcRCrlxtHC6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MJO\\source\\repo\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
+  "projectFilePath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\Frontend_Project\\Frontend_Project.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MJO\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+    "C:\\Users\\bella\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
   ],
   "logs": []
 }

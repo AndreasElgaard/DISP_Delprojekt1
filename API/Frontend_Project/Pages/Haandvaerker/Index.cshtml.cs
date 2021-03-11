@@ -59,7 +59,7 @@ namespace Frontend_Project.Pages.Haandvaerker
             //{
             //    client.BaseAddress = new Uri("http://localhost:3000");
 
-            //    var response = client.GetAsync("/API");
+            //    var response = client.GetAsync("/Haandvaerker");
 
             //    if (response.Result.StatusCode != HttpStatusCode.OK)
             //    {

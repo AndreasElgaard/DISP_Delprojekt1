@@ -12,6 +12,7 @@ namespace Frontend_Project.Datamodels
         public string Fornavn { get; set; }
         [Required]
         public string Efternavn { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Ansættelsesdato { get; set; }
         public string Fagområde { get; set; }
         public long ID { get; set; }

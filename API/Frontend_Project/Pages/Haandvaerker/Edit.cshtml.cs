@@ -22,7 +22,9 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:3000");
 
-                var response = client.GetAsync("/API");
+                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
+
+                var response = client.GetAsync(reqq);
 
                 var json = await response.Result.Content.ReadAsStringAsync();
 
@@ -57,7 +59,9 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:3000");
 
-                var response = client.PutAsync("/API", content);
+                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
+
+                var response = client.PutAsync(reqq, content);
 
                 if (response.Result.StatusCode != HttpStatusCode.OK)
                 {

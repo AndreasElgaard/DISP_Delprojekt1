@@ -39,7 +39,8 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:3000");
 
-                var response = client.PutAsync("/API", content);
+
+                var response = client.PutAsync("/Haandvaerker", content);
 
                 if (response.Result.StatusCode != HttpStatusCode.OK)
                 {

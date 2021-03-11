@@ -21,7 +21,9 @@ namespace Frontend_Project.Pages.Haandvaerker
             { 
             client.BaseAddress = new Uri("http://localhost:3000");
 
-             var response = client.GetAsync("/API");
+            string reqq = "/Haandvaerker" + localModel.ID.ToString();
+
+            var response = client.GetAsync(reqq);
 
              var json = await response.Result.Content.ReadAsStringAsync();
 
