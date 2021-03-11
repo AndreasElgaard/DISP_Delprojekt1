@@ -10,12 +10,13 @@ namespace API.Repository
 {
     public class HaandVaerkerRepository : Repository<Haandvaerker>, IHaandVaerkerRepository, IDisposable
     {
-        public HaandVaerkerRepository(ApplicationContext context) : base(context)
-        {
-
-        }
 
         private bool disposed = false;
+
+        public HaandVaerkerRepository(ApplicationContext context) : base(context)
+        {
+        }
+
 
         protected virtual void Dispose(bool disposing)
         {

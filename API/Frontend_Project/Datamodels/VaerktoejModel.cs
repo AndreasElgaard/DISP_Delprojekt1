@@ -13,6 +13,6 @@ namespace Frontend_Project.Datamodels
         public String Fabrikat { get; set; }
         public string Model { get; set; }
         public long SerieNummer { get; set; }
-        public string Typy { get; set; }
+        public string Type { get; set; }
     }
 }
