@@ -60,7 +60,6 @@ namespace Frontend_Project.Pages.Haandvaerker
             using (var client = new HttpClient())
             {
                 //client.BaseAddress = new Uri("http://localhost:44376");
-                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
                 var response = await client.GetAsync("http://localhost:44376/api/Haandvaerker");
 
