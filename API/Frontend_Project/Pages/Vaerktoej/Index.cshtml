@@ -1,0 +1,79 @@
+﻿@page
+@model Frontend_Project.Pages.Vaerktoej.IndexModel
+@{
+    ViewData["Title"] = "Værktøjs oversigt";
+}
+
+<div class="row">
+    <div class="col-4 col-sm-4 col-lg-4 col-xl-4 col-md-4 p-5">
+        <div id="orderheadline">
+            <h1>Oversigt over værktøj</h1>
+
+            <p>
+                <a class="btn btn-secondary shadow" asp-page="/Vaerktoej/Create">Create New</a>
+            </p>
+        </div>
+    </div>
+    <div class="col col-sm col-lg col-xl col-md p-5">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Fabrikant
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Serienummer
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Anskaffet
+                    </th>
+                    <th>
+                        Tilhører værktøjskasse
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.LocalModels)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fabrikat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SerieNummer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anskaffet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LiggerIVTK)
+                    </td>
+                    <td>
+                        <a class="btn btn-secondary shadow" asp-page="/Vaerktoej/Details" asp-route-id="@item.id">Choose</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

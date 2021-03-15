@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Frontend_Project.Pages.Haandvaerker
 {
@@ -23,7 +25,7 @@ namespace Frontend_Project.Pages.Haandvaerker
         }
         
 
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet()
         {
             //var dd = new DateTime(2020, 09, 12);
             //var d1 = new DateTime(2020, 09, 11);
@@ -57,21 +59,29 @@ namespace Frontend_Project.Pages.Haandvaerker
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:3000");
+                //client.BaseAddress = new Uri("http://localhost:44376");
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-                var response = client.GetAsync("/Haandvaerker");
+                var response = await client.GetAsync("http://localhost:44376/api/Haandvaerker");
 
-                if (response.Result.StatusCode != HttpStatusCode.OK)
+                response.EnsureSuccessStatusCode();
+                //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
+
+                if (response.IsSuccessStatusCode)
                 {
-
+                    LocalModels = await response.Content.ReadFromJsonAsync<List<HaandvaerkerModel>>();
                 }
+                //var json = await response.Content.ReadAsStringAsync();
 
-                var json = await response.Result.Content.ReadAsStringAsync();
+                //var result = JsonSerializer.Deserialize<List<HaandvaerkerModel>>(json);
 
-                var result = JsonSerializer.Deserialize<List<HaandvaerkerModel>>(json);
+                //LocalModels = result;
 
-                LocalModels = result;
-
+                return Page();
+                
+                
+                //return RedirectToPage("/Index");
+                
             }
         }
 

@@ -1,0 +1,53 @@
+﻿@page
+@using System.Reflection
+@model Frontend_Project.Pages.VaerktoejsKasse.CreateModel
+@{
+    ViewData["Title"] = "Tilføj Vaerktoejs Kasse";
+}
+
+<div>
+    <h1> Tilføj værktøjs kasse</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <form method="post">
+                <div class="form-group">
+
+                    <label for="id" class="control-label">ID</label>
+
+                    <input type="text" asp-for="LocalModel.id" />
+                </div>
+                <div class="form-group">
+                    <label for="Model" class="control-label">Model</label>
+                    <input type="text" asp-for="LocalModel.Model" />
+                </div>
+                <div class="form-group">
+                    <label for="Fabrikant" class="control-label">Fabrikant</label>
+                    <input type="text" asp-for="LocalModel.Fabrikant" />
+                </div>
+                <div class="form-group">
+                    <label for="Farve" class="control-label">Farve</label>
+                    <input type="text" asp-for="LocalModel.Farve" />
+                </div>
+                <div class="form-group">
+                    <label for="Anskaffet" class="control-label">Anskaffet</label>
+                    <input type="datetime" asp-for="LocalModel.Anskaffet" />
+                </div>
+                <div class="form-group">
+                    <label for="EjesAf" class="control-label">Ejes Af</label>
+                    <input type="text" asp-for="LocalModel.EjesAF.ID" />
+                </div>
+                <div class="form-group">
+                    <label for="Vaerktoejer" class="control-label">Værktøjer</label>
+                    <input type="text"  />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary shadow">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-secondary" asp-page="/VaerktoejsKasse/Index">Tilbage</a>
+    </div>
+</div>

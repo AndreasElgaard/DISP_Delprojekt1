@@ -10,11 +10,11 @@ using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Frontend_Project.Pages.Haandvaerker
+namespace Frontend_Project.Pages.VaerktoejsKasse
 {
     public class EditModel : PageModel
     {
-        public HaandvaerkerModel LocalModel { get; set; }
+        public VaerktoejsKasseModel LocalModel { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -22,13 +22,13 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:44376");
 
-                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
+                string reqq = "/VaerktoejsKasse/" + LocalModel.id.ToString();
 
                 var response = client.GetAsync(reqq);
 
                 var json = await response.Result.Content.ReadAsStringAsync();
 
-                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
+                var result = JsonSerializer.Deserialize<VaerktoejsKasseModel>(json);
 
                 LocalModel = result;
 
@@ -59,7 +59,7 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:3000");
 
-                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
+                string reqq = "/VaerktoejsKasse" + LocalModel.id.ToString();
 
                 var response = client.PutAsync(reqq, content);
 

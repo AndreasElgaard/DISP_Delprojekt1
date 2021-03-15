@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 
-namespace Frontend_Project.Pages.Haandvaerker
+namespace Frontend_Project.Pages.Vaerktoej
 {
     public class CreateModel : PageModel
     {
-        public HaandvaerkerModel LocalModel { get; set; }
+        public VaerktoejModel LocalModel { get; set; }
 
         public void OnGet()
         {
@@ -40,7 +40,7 @@ namespace Frontend_Project.Pages.Haandvaerker
                 client.BaseAddress = new Uri("http://localhost:44376");
 
 
-                var response = client.PutAsync("/Haandvaerker", content);
+                var response = client.PutAsync("/Vaerktoej", content);
 
                 if (response.Result.StatusCode != HttpStatusCode.OK)
                 {

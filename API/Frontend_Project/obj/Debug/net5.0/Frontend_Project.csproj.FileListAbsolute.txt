@@ -50,3 +50,13 @@ C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\bin\Debug\net5
 C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\VaerktoejsKasse\Create.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\VaerktoejsKasse\Delete.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\VaerktoejsKasse\Details.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\VaerktoejsKasse\Edit.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\VaerktoejsKasse\Index.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\Vaerktoej\Create.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\Vaerktoej\Delete.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\Vaerktoej\Details.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\Vaerktoej\Edit.cshtml.g.cs
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\Frontend_Project\obj\Debug\net5.0\Razor\Pages\Vaerktoej\Index.cshtml.g.cs

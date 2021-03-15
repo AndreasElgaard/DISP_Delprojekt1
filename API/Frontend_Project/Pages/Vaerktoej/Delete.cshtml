@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model Frontend_Project.Pages.Vaerktoej.DeleteModel
+@{
+    ViewData["Title"] = "Slet Værktøj";
+}
+
+
+<h1>Sletning</h1>
+
+<div>
+    <h4>Er du sikker på at du vil slsette værktøjet @Model.localModel.id ?</h4>
+    <hr />
+    <form method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.localModel.Fabrikat)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.Model)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.localModel.SerieNummer)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.Type)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.Anskaffet)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.LiggerIVTK)
+            </dt>
+        </dl>
+        <button class="btn btn-info" type="submit">Ja</button>
+        <button class="btn btn-info" asp-page="/Vaerktoej/Details" asp-route-id="@Model.localModel.id">Nej</button>
+    </form>
+</div>

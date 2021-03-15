@@ -1,0 +1,37 @@
+﻿@page "{id:int}"
+@model Frontend_Project.Pages.VaerktoejsKasse.DeleteModel
+@{
+    ViewData["Title"] = "Slet værktøjskasse";
+}
+
+
+<h1>Sletning</h1>
+
+<div>
+    <h4>Er du sikker på at du vil slette værktøjskassen @Model.localModel.id ?</h4>
+    <hr />
+    <form method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.localModel.Model)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.Fabrikant)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.localModel.Farve)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.Anskaffet)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.EjesAF.ID)
+            </dt>
+        </dl>
+        <button class="btn btn-info" type="submit">Ja</button>
+        <button class="btn btn-info" asp-page="/VaerktoejsKasse/Details" asp-route-id="@Model.localModel.id">Nej</button>
+    </form>
+</div>

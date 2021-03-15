@@ -8,25 +8,25 @@ using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Frontend_Project.Pages.Haandvaerker
+namespace Frontend_Project.Pages.VaerktoejsKasse
 {
     public class DeleteModel : PageModel
     {
 
-        public HaandvaerkerModel localModel { get; set; }
+        public VaerktoejsKasseModel localModel { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:3000");
 
-                string reqq = "/Haandvaerker" + localModel.ID.ToString();
+                string reqq = "/VaerktoejsKasse/" + localModel.id.ToString();
 
                 var response = client.GetAsync(reqq);
 
                 var json = await response.Result.Content.ReadAsStringAsync();
 
-                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
+                var result = JsonSerializer.Deserialize<VaerktoejsKasseModel>(json);
 
                 localModel = result;
 
@@ -47,13 +47,13 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("http://localhost:44376");
 
-                string reqq = "/Haandvaerker" + localModel.ID.ToString();
+                string reqq = "/VaerktoejsKasse" + localModel.id.ToString();
 
                 var response = client.DeleteAsync(reqq);
 
                 var json = await response.Result.Content.ReadAsStringAsync();
 
-                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
+                var result = JsonSerializer.Deserialize<VaerktoejsKasseModel>(json);
 
                 localModel = result;
 
