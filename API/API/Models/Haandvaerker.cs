@@ -10,7 +10,7 @@ namespace API.Models
     {
         public Haandvaerker()
         {
-            Vaerktoejskasse = new HashSet<Vaerktoejskasse>();
+            Vaerktoejskasse = new Vaerktoejskasse();
         }
 
         [Key]
@@ -19,7 +19,7 @@ namespace API.Models
         public string HVEfternavn { get; set; }
         public string HVFagomraade { get; set; }
         public string HVFornavn { get; set; }
-        public HashSet<Vaerktoejskasse> Vaerktoejskasse { get; set; }
+        public Vaerktoejskasse Vaerktoejskasse { get; set; }
     }
 }
 /*
