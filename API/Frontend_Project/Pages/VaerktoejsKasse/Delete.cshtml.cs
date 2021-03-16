@@ -12,15 +12,19 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 {
     public class DeleteModel : PageModel
     {
-
         public VaerktoejsKasseModel localModel { get; set; }
+        public HttpClient client { get; set; }
+
+        public DeleteModel(HttpClient client)
+        {
+            this.client = client;
+        }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:3000");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/VaerktoejsKasse/" + localModel.id.ToString();
+                string reqq = "/VaerktoejsKasse/" + localModel.VTKId.ToString();
 
                 var response = client.GetAsync(reqq);
 
@@ -32,10 +36,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
                 if (localModel == null)
                 {
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/VaerktoejsKasse/Index");
                 }
 
-            }
+            
 
             return Page();
 
@@ -43,11 +47,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
         public async Task<IActionResult> OnDelete()
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:44376");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/VaerktoejsKasse" + localModel.id.ToString();
+                string reqq = "/VaerktoejsKasse/" + localModel.VTKId.ToString();
 
                 var response = client.DeleteAsync(reqq);
 
@@ -59,10 +62,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
                 if (localModel == null)
                 {
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/VaerktoejsKasse/Index");
                 }
 
-            }
+            
 
             return Page();
         }

@@ -17,6 +17,12 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
     public class CreateModel : PageModel
     {
         public VaerktoejsKasseModel LocalModel { get; set; }
+        public HttpClient client { get; set; }
+
+        public CreateModel(HttpClient client)
+        {
+            this.client = client;
+        }
 
         public void OnGet()
         {
@@ -35,9 +41,8 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
             var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
 
             //Post modellen til API'et
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:44376");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
 
                 var response = client.PutAsync("/VaerktoejsKasse", content);
@@ -46,9 +51,9 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
                 {
                     return Page();
                 }
-            }
+            
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/VaerktoejsKasse/Index");
         }
 
     }

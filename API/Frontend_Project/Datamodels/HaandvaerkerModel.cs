@@ -9,14 +9,14 @@ namespace Frontend_Project.Datamodels
     public class HaandvaerkerModel
     {
         [Required]
-        public string Fornavn { get; set; }
+        public string HVFornavn { get; set; }
         [Required]
-        public string Efternavn { get; set; }
+        public string HVEfternavn { get; set; }
         [DataType(DataType.Date)]
-        public DateTime Ansættelsesdato { get; set; }
-        public string Fagområde { get; set; }
-        public long ID { get; set; }
+        public DateTime HVAnsaettelsedato { get; set; }
+        public string HVFagomraade { get; set; }
+        public int HaandvaerkerId { get; set; }
 
-        public VaerktoejsKasseModel Vaerktoejskasse { get; set; }
+        public HashSet<VaerktoejsKasseModel> Vaerktoejskasse { get; set; }
     }
 }

@@ -8,30 +8,33 @@
 <h1>Sletning</h1>
 
 <div>
-    <h4>Er du sikker på at du vil slette værktøjskassen @Model.localModel.id ?</h4>
+    <h4>Er du sikker på at du vil slette værktøjskassen @Model.localModel.VTKId ?</h4>
     <hr />
     <form method="post">
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.id)
+                @Html.DisplayNameFor(model => model.localModel.VTKId)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.Model)
+                @Html.DisplayFor(model => model.localModel.VTKModel)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.Fabrikant)
+                @Html.DisplayNameFor(model => model.localModel.VTKFabrikat)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.Farve)
+                @Html.DisplayFor(model => model.localModel.VTKFarve)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.Anskaffet)
+                @Html.DisplayNameFor(model => model.localModel.VTKAnskaffet)
             </dt>
             <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.localModel.VTKSerienummer)
+            </dt>
+            @*<dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.localModel.EjesAF.ID)
-            </dt>
+            </dt>*@
         </dl>
         <button class="btn btn-info" type="submit">Ja</button>
-        <button class="btn btn-info" asp-page="/VaerktoejsKasse/Details" asp-route-id="@Model.localModel.id">Nej</button>
+        <button class="btn btn-info" asp-page="/VaerktoejsKasse/Details" asp-route-id="@Model.localModel.VTKId">Nej</button>
     </form>
 </div>

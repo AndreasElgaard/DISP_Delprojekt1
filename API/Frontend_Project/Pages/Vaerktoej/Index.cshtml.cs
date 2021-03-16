@@ -16,9 +16,10 @@ namespace Frontend_Project.Pages.Vaerktoej
     public class IndexModel : PageModel
     {
         public List<VaerktoejModel> LocalModels { get; set; }
-
-        public IndexModel()
+        public HttpClient client { get; set; }
+        public IndexModel(HttpClient client)
         {
+            this.client = client;
             LocalModels = new List<VaerktoejModel>();
         }
         
@@ -26,9 +27,8 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task OnGet()
         {
             
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:44376");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
                 var response = client.GetAsync("/Vaerktoej");
 
@@ -43,7 +43,7 @@ namespace Frontend_Project.Pages.Vaerktoej
 
                 LocalModels = result;
 
-            }
+            
         }
 
     }

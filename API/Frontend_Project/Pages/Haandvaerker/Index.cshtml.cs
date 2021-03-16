@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using Frontend_Project.ClientHelper;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,15 +19,17 @@ namespace Frontend_Project.Pages.Haandvaerker
     public class IndexModel : PageModel
     {
         public List<HaandvaerkerModel> LocalModels { get; set; }
-
-        public IndexModel()
+        public HttpClient client { get; set; }
+        public IndexModel(HttpClient client)
         {
             LocalModels = new List<HaandvaerkerModel>();
+            this.client = client;
         }
         
 
-        public async Task<IActionResult> OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+
             //var dd = new DateTime(2020, 09, 12);
             //var d1 = new DateTime(2020, 09, 11);
             //HaandvaerkerModel m1 = new HaandvaerkerModel()
@@ -57,31 +60,22 @@ namespace Frontend_Project.Pages.Haandvaerker
             //LocalModels.Add(m2);
             //LocalModels.Add(m3);
 
-            using (var client = new HttpClient())
+
+            client.BaseAddress = new Uri("https://localhost:44376/");
+
+            var response = await client.GetAsync("api/Haandvaerker");
+
+            response.EnsureSuccessStatusCode();
+            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
+
+            if (response.IsSuccessStatusCode)
             {
-                //client.BaseAddress = new Uri("http://localhost:44376");
-
-                var response = await client.GetAsync("http://localhost:44376/api/Haandvaerker");
-
-                response.EnsureSuccessStatusCode();
-                //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    LocalModels = await response.Content.ReadFromJsonAsync<List<HaandvaerkerModel>>();
-                }
-                //var json = await response.Content.ReadAsStringAsync();
-
-                //var result = JsonSerializer.Deserialize<List<HaandvaerkerModel>>(json);
-
-                //LocalModels = result;
-
-                return Page();
-                
-                
-                //return RedirectToPage("/Index");
-                
+                LocalModels = await response.Content.ReadFromJsonAsync<List<HaandvaerkerModel>>();
             }
+            
+
+            return Page();
+
         }
 
     }

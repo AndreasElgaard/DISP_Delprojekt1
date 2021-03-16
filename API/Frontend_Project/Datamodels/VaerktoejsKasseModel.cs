@@ -7,13 +7,15 @@ namespace Frontend_Project.Datamodels
 {
     public class VaerktoejsKasseModel
     {
-        public long id { get; set; }
-        public string Model { get; set; }
-        public string Fabrikant { get; set; }
-        public string Farve { get; set; }
-        public DateTime Anskaffet { get; set; }
-        public HaandvaerkerModel EjesAF { get; set; }
-        public List<VaerktoejModel> Vaerktoejer { get; set; }
+        public int VTKId { get; set; }
+        public string VTKModel { get; set; }
+        public string VTKFabrikat { get; set; }
+        public string VTKFarve { get; set; }
+        public DateTime VTKAnskaffet { get; set; }
+        public int? VTKEjesAf { get; set; }
+        public HaandvaerkerModel EjesAfNavigation { get; set; }
+        public string VTKSerienummer { get; set; }
+        public HashSet<VaerktoejModel> Vaerktoej { get; set; }
         
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -14,36 +15,42 @@ namespace Frontend_Project.Pages.Haandvaerker
 {
     public class EditModel : PageModel
     {
-        public HaandvaerkerModel LocalModel { get; set; }
+        public HaandvaerkerModel localModel { get; set; }
+        public HttpClient client { get; set; }
+
+        public EditModel(HttpClient client)
+        {
+            this.client = client;
+        }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            using (var client = new HttpClient())
+            
+            client.BaseAddress = new Uri("https://localhost:44376/");
+
+            string reqq = "api/Haandvaerker/" + id.ToString();
+
+            var response = await client.GetAsync(reqq);
+
+            response.EnsureSuccessStatusCode();
+            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
+
+            if (response.IsSuccessStatusCode)
             {
-                client.BaseAddress = new Uri("http://localhost:44376");
+                localModel = await response.Content.ReadFromJsonAsync<HaandvaerkerModel>();
+            }
 
-                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
 
-                var response = client.GetAsync(reqq);
-
-                var json = await response.Result.Content.ReadAsStringAsync();
-
-                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
-
-                LocalModel = result;
-
-                if (LocalModel == null)
-                {
-                    return RedirectToPage("/Index");
-                }
-
+            if (localModel == null)
+            {
+                return RedirectToPage("/Haandvaerker/Index");
             }
 
             return Page();
 
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid == false)
             {
@@ -51,15 +58,14 @@ namespace Frontend_Project.Pages.Haandvaerker
             }
 
             //Lav modellen om til en JSON string
-            string jsonObjekt = JsonSerializer.Serialize(LocalModel);
+            string jsonObjekt = JsonSerializer.Serialize(localModel);
             var content = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
             //Post modellen til API'et
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:3000");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "/Haandvaerker" + LocalModel.ID.ToString();
+                string reqq = "api/Haandvaerker/" + localModel.HaandvaerkerId.ToString();
 
                 var response = client.PutAsync(reqq, content);
 
@@ -67,9 +73,9 @@ namespace Frontend_Project.Pages.Haandvaerker
                 {
                     return Page();
                 }
-            }
+            
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Haandvaerker/Index");
         }
     }
 }

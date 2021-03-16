@@ -14,14 +14,18 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
     public class DetailsModel : PageModel
     {
         public VaerktoejsKasseModel localModel { get; set; }
+        public HttpClient client { get; set; }
 
+        public DetailsModel(HttpClient client)
+        {
+            this.client = client;
+        }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            using (var client = new HttpClient())
-            { 
-            client.BaseAddress = new Uri("http://localhost:44376");
+            
+            client.BaseAddress = new Uri("https://localhost:44376");
 
-            string reqq = "/VaerktoejsKasse/" + localModel.id.ToString();
+            string reqq = "/api/VaerktoejsKasse/" + id.ToString();
 
             var response = client.GetAsync(reqq);
 
@@ -33,10 +37,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
              if (localModel == null)
              {
-                 return RedirectToPage("/Index");
+                 return RedirectToPage("/VaerktoejsKasse/Index");
              }
 
-            }
+            
 
             return Page();
 

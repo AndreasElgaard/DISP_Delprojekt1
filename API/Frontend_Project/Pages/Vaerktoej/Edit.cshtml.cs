@@ -15,14 +15,18 @@ namespace Frontend_Project.Pages.Vaerktoej
     public class EditModel : PageModel
     {
         public VaerktoejModel LocalModel { get; set; }
+        public HttpClient client { get; set; }
 
+        public EditModel(HttpClient client)
+        {
+            this.client = client;
+        }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:44376");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/Vaerktoej" + LocalModel.id.ToString();
+                string reqq = "/Vaerktoej/" + LocalModel.VTId.ToString();
 
                 var response = client.GetAsync(reqq);
 
@@ -37,7 +41,7 @@ namespace Frontend_Project.Pages.Vaerktoej
                     return RedirectToPage("/Index");
                 }
 
-            }
+            
 
             return Page();
 
@@ -55,11 +59,10 @@ namespace Frontend_Project.Pages.Vaerktoej
             var content = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
             //Post modellen til API'et
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:3000");
+            
+                client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/Vaerktoej/" + LocalModel.id.ToString();
+                string reqq = "/Vaerktoej/" + LocalModel.VTId.ToString();
 
                 var response = client.PutAsync(reqq, content);
 
@@ -67,9 +70,9 @@ namespace Frontend_Project.Pages.Vaerktoej
                 {
                     return Page();
                 }
-            }
+            
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Vaerktoej/Index");
         }
     }
 }

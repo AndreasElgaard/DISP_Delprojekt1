@@ -15,31 +15,35 @@
 
                     <label for="id" class="control-label">ID</label>
 
-                    <input type="text" asp-for="LocalModel.id" />
+                    <input type="text" asp-for="LocalModel.VTKId" />
                 </div>
                 <div class="form-group">
                     <label for="Model" class="control-label">Model</label>
-                    <input type="text" asp-for="LocalModel.Model" />
+                    <input type="text" asp-for="LocalModel.VTKModel" />
                 </div>
                 <div class="form-group">
                     <label for="Fabrikant" class="control-label">Fabrikant</label>
-                    <input type="text" asp-for="LocalModel.Fabrikant" />
+                    <input type="text" asp-for="LocalModel.VTKFabrikat" />
                 </div>
                 <div class="form-group">
                     <label for="Farve" class="control-label">Farve</label>
-                    <input type="text" asp-for="LocalModel.Farve" />
+                    <input type="text" asp-for="LocalModel.VTKFarve" />
                 </div>
                 <div class="form-group">
                     <label for="Anskaffet" class="control-label">Anskaffet</label>
-                    <input type="datetime" asp-for="LocalModel.Anskaffet" />
+                    <input type="datetime" asp-for="LocalModel.VTKAnskaffet" />
+                </div>
+                <div class="form-group">
+                    <label for="Serienummer" class="control-label">Serienummer</label>
+                    <input type="text" asp-for="LocalModel.VTKSerienummer" />
                 </div>
                 <div class="form-group">
                     <label for="EjesAf" class="control-label">Ejes Af</label>
-                    <input type="text" asp-for="LocalModel.EjesAF.ID" />
+                    <input type="text" asp-for="LocalModel.VTKEjesAf" />
                 </div>
                 <div class="form-group">
                     <label for="Vaerktoejer" class="control-label">Værktøjer</label>
-                    <input type="text"  />
+                    <input type="text" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>

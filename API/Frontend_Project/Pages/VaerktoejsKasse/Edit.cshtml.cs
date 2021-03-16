@@ -15,14 +15,19 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
     public class EditModel : PageModel
     {
         public VaerktoejsKasseModel LocalModel { get; set; }
+        public HttpClient client { get; set; }
+
+        public EditModel(HttpClient client)
+        {
+            this.client = client;
+        }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:44376");
+            
+                client.BaseAddress = new Uri("https://localhost:44376");
 
-                string reqq = "/VaerktoejsKasse/" + LocalModel.id.ToString();
+                string reqq = "/api/VaerktoejsKasse/" + id.ToString();
 
                 var response = client.GetAsync(reqq);
 
@@ -34,10 +39,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
                 if (LocalModel == null)
                 {
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/VaerktoejsKasse/Index");
                 }
 
-            }
+            
 
             return Page();
 
@@ -55,11 +60,10 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
             var content = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
             //Post modellen til API'et
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://localhost:3000");
+            
+                client.BaseAddress = new Uri("https://localhost:44376");
 
-                string reqq = "/VaerktoejsKasse" + LocalModel.id.ToString();
+                string reqq = "/api/VaerktoejsKasse/" + LocalModel.VTKId.ToString();
 
                 var response = client.PutAsync(reqq, content);
 
@@ -67,9 +71,9 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
                 {
                     return Page();
                 }
-            }
+            
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/VaerktoejsKasse/Index");
         }
     }
 }

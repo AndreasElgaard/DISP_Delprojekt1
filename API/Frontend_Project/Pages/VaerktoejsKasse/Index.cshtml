@@ -31,10 +31,13 @@
                         Farve
                     </th>
                     <th>
+                        Serienummer
+                    </th>
+                    <th>
                         Anskaffet
                     </th>
                     <th>
-                        Ejes af 
+                        Ejes af
                     </th>
                     <th>
                         Indeholder værktøjerne
@@ -47,28 +50,31 @@
                 {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.id)
+                        @Html.DisplayFor(modelItem => item.VTKId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Model)
+                        @Html.DisplayFor(modelItem => item.VTKModel)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fabrikant)
+                        @Html.DisplayFor(modelItem => item.VTKFabrikat)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Farve)
+                        @Html.DisplayFor(modelItem => item.VTKFarve)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Anskaffet)
+                        @Html.DisplayFor(modelItem => item.VTKSerienummer)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EjesAF.ID)
+                        @Html.DisplayFor(modelItem => item.VTKAnskaffet)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.VTKEjesAf)
+                    </td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Vaerktoejer)
-                    </td>
+                    </td>*@
                     <td>
-                        <a class="btn btn-secondary shadow" asp-page="/VaerktoejsKasse/Details" asp-route-id="@item.id">Choose</a>
+                        <a class="btn btn-secondary shadow" asp-page="/VaerktoejsKasse/Details" asp-route-id="@item.VTKId">Choose</a>
                     </td>
                 </tr>
                 }

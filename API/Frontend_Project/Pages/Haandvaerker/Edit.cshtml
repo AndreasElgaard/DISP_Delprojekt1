@@ -14,27 +14,23 @@
 
                     <label for="Fornavn" class="control-label">Fornavn</label>
 
-                    <input type="text" asp-for="LocalModel.Fornavn" placeholder="@Model.LocalModel.Fornavn" />
+                    <input type="text" asp-for="localModel.HVFornavn" placeholder="@Model.localModel.HVFornavn" />
                 </div>
                 <div class="form-group">
                     <label for="Efternavn" class="control-label">Efternavn</label>
-                    <input type="text" asp-for="LocalModel.Efternavn" placeholder="@Model.LocalModel.Efternavn" />
+                    <input type="text" asp-for="localModel.HVEfternavn" placeholder="@Model.localModel.HVEfternavn" />
                 </div>
                 <div class="form-group">
                     <label for="Ansættelsesdato" class="control-label">Ansættelsesdato</label>
-                    <input type="datetime" asp-for="LocalModel.Ansættelsesdato" placeholder="@Model.LocalModel.Ansættelsesdato" />
+                    <input type="datetime" asp-for="localModel.HVAnsaettelsedato" placeholder="@Model.localModel.HVAnsaettelsedato" />
                 </div>
                 <div class="form-group">
                     <label for="Fagområde" class="control-label">Fagområde</label>
-                    <input type="text" asp-for="LocalModel.Fagområde" placeholder="@Model.LocalModel.Fagområde" />
+                    <input type="text" asp-for="localModel.HVFagomraade" placeholder="@Model.localModel.HVFagomraade" />
                 </div>
                 <div class="form-group">
                     <label for="ID" class="control-label">ID</label>
-                    <input type="number" asp-for="LocalModel.ID" placeholder="@Model.LocalModel.ID" />
-                </div>
-                <div class="form-group">
-                    <label for="vk-ID" class="control-label">Værktøjskasse ID</label>
-                    <input type="number" asp-for="LocalModel.Vaerktoejskasse.id" placeholder="@Model.LocalModel.Vaerktoejskasse.id" />
+                    <input type="number" asp-for="localModel.HaandvaerkerId" placeholder="@Model.localModel.HaandvaerkerId" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>
@@ -43,6 +39,6 @@
         </div>
     </div>
     <div>
-        <a class="btn btn-secondary" asp-page="/Haandvaerker/Details" asp-route-id="LocalModel.ID">Tilbage</a>
+        <a class="btn btn-secondary" asp-page="/Haandvaerker/Details" asp-route-id="localModel.HaandvaerkerId">Tilbage</a>
     </div>
 </div>

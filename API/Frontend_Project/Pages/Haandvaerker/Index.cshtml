@@ -41,22 +41,22 @@
                 {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fornavn)
+                        @Html.DisplayFor(modelItem => item.HVFornavn)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Efternavn)
+                        @Html.DisplayFor(modelItem => item.HVEfternavn)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Ansættelsesdato)
+                        @Html.DisplayFor(modelItem => item.HVAnsaettelsedato)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fagområde)
+                        @Html.DisplayFor(modelItem => item.HVFagomraade)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ID)
+                        @Html.DisplayFor(modelItem => item.HaandvaerkerId)
                     </td>
                     <td>
-                        <a class="btn btn-secondary shadow" asp-page="/Haandvaerker/Details" asp-route-id="@item.ID">Choose</a>
+                        <a class="btn btn-secondary shadow" asp-page="/Haandvaerker/Details" asp-route-id="@item.HaandvaerkerId">Choose</a>
                     </td>
                 </tr>
                 }

@@ -47,28 +47,28 @@
                 {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.id)
+                        @Html.DisplayFor(modelItem => item.VTId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fabrikat)
+                        @Html.DisplayFor(modelItem => item.VTFabrikat)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Model)
+                        @Html.DisplayFor(modelItem => item.VTModel)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SerieNummer)
+                        @Html.DisplayFor(modelItem => item.VTSerienr)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Type)
+                        @Html.DisplayFor(modelItem => item.VTType)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Anskaffet)
+                        @Html.DisplayFor(modelItem => item.VTAnskaffet)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LiggerIVTK)
+                        @Html.DisplayFor(modelItem => item.LiggerIvtk)
                     </td>
                     <td>
-                        <a class="btn btn-secondary shadow" asp-page="/Vaerktoej/Details" asp-route-id="@item.id">Choose</a>
+                        <a class="btn btn-secondary shadow" asp-page="/Vaerktoej/Details" asp-route-id="@item.VTId">Choose</a>
                     </td>
                 </tr>
                 }

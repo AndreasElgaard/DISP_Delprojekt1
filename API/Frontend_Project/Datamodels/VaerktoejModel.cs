@@ -7,13 +7,14 @@ namespace Frontend_Project.Datamodels
 {
     public class VaerktoejModel
     {
-        public long id { get; set; }
-        public string Fabrikat { get; set; }
-        public string Model { get; set; }
-        public long SerieNummer { get; set; }
-        public string Type { get; set; }
-        public DateTime Anskaffet { get; set; }
-        public string LiggerIVTK { get; set; }
+        public long VTId { get; set; }
+        public string VTFabrikat { get; set; }
+        public string VTModel { get; set; }
+        public string VTSerienr { get; set; }
+        public string VTType { get; set; }
+        public DateTime VTAnskaffet { get; set; }
+        public int? LiggerIvtk { get; set; }
+        public VaerktoejsKasseModel LiggerIvtkNavigation { get; set; }
 
     }
 }

@@ -16,14 +16,21 @@ namespace Frontend_Project.Pages.Haandvaerker
 {
     public class CreateModel : PageModel
     {
-        public HaandvaerkerModel LocalModel { get; set; }
+        
+        public HttpClient client { get; set; }
 
-        public void OnGet()
+        public CreateModel(HttpClient client)
         {
-
+            this.client = client;
         }
-
-        public IActionResult OnPost()
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+        
+        [BindProperty]
+        public HaandvaerkerModel LocalModel { get; set; }
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid == false)
             {
@@ -35,20 +42,20 @@ namespace Frontend_Project.Pages.Haandvaerker
             var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
 
             //Post modellen til API'et
-            using (var client = new HttpClient())
+            
+            client.BaseAddress = new Uri("https://localhost:44376");
+
+
+            var response = await client.PostAsync("/api/Haandvaerker", content);
+
+            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
             {
-                client.BaseAddress = new Uri("http://localhost:44376");
-
-
-                var response = client.PutAsync("/Haandvaerker", content);
-
-                if (response.Result.StatusCode != HttpStatusCode.OK)
-                {
-                    return Page();
-                }
+                return Page();
             }
-
-            return RedirectToPage("/Index");
+              
+            return RedirectToPage("/Haandvaerker/Index");
         }
 
     }

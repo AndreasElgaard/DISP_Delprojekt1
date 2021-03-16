@@ -13,31 +13,31 @@
                 <div class="form-group">
 
                     <label for="id" class="control-label">ID</label>
-                    <input type="text" asp-for="LocalModel.id" placeholder="@Model.LocalModel.id" />
+                    <input type="text" asp-for="LocalModel.VTId" placeholder="@Model.LocalModel.VTId" />
                 </div>
                 <div class="form-group">
                     <label for="Fabrikat" class="control-label">Fabrikat</label>
-                    <input type="text" asp-for="LocalModel.Fabrikat" placeholder="@Model.LocalModel.Fabrikat" />
+                    <input type="text" asp-for="LocalModel.VTFabrikat" placeholder="@Model.LocalModel.VTFabrikat" />
                 </div>
                 <div class="form-group">
                     <label for="Model" class="control-label">Model</label>
-                    <input type="text" asp-for="LocalModel.Model" placeholder="@Model.LocalModel.Model" />
+                    <input type="text" asp-for="LocalModel.VTModel" placeholder="@Model.LocalModel.VTModel" />
                 </div>
                 <div class="form-group">
                     <label for="SerieNummer" class="control-label">SerieNummer</label>
-                    <input type="number" asp-for="LocalModel.SerieNummer" placeholder="@Model.LocalModel.SerieNummer" />
+                    <input type="number" asp-for="LocalModel.VTSerienr" placeholder="@Model.LocalModel.VTSerienr" />
                 </div>
                 <div class="form-group">
                     <label for="Type" class="control-label">Type</label>
-                    <input type="text" asp-for="LocalModel.Type" placeholder="@Model.LocalModel.Type" />
+                    <input type="text" asp-for="LocalModel.VTType" placeholder="@Model.LocalModel.VTType" />
                 </div>
                 <div class="form-group">
                     <label for="Anskaffet" class="control-label">Anskaffet</label>
-                    <input type="datetime" asp-for="LocalModel.Anskaffet" placeholder="@Model.LocalModel.Anskaffet" />
+                    <input type="datetime" asp-for="LocalModel.VTAnskaffet" placeholder="@Model.LocalModel.VTAnskaffet" />
                 </div>
                 <div class="form-group">
                     <label for="LiggerIVTK" class="control-label">Værktøjskasse ID</label>
-                    <input type="text" asp-for="LocalModel.LiggerIVTK" placeholder="@Model.LocalModel.LiggerIVTK" />
+                    <input type="text" asp-for="LocalModel.LiggerIvtk" placeholder="@Model.LocalModel.LiggerIvtk" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>
@@ -46,6 +46,6 @@
         </div>
     </div>
     <div>
-        <a class="btn btn-secondary" asp-page="/Vaerktoej/Details" asp-route-id="LocalModel.id">Tilbage</a>
+        <a class="btn btn-secondary" asp-page="/Vaerktoej/Details" asp-route-id="LocalModel.VTId">Tilbage</a>
     </div>
 </div>

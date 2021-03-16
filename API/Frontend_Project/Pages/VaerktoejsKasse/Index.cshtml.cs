@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -16,34 +17,29 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
     public class IndexModel : PageModel
     {
         public List<VaerktoejsKasseModel> LocalModels { get; set; }
-
-        public IndexModel()
+        public HttpClient client { get; set; }
+        public IndexModel(HttpClient client)
         {
+            this.client = client;
             LocalModels = new List<VaerktoejsKasseModel>();
         }
         
 
         public async Task<IActionResult> OnGet()
         {
-            using (var client = new HttpClient())
+            
+            client.BaseAddress = new Uri("https://localhost:44376");
+
+            var response = await client.GetAsync("/api/VaerktoejsKasse");
+
+            response.EnsureSuccessStatusCode();
+            
+            if (response.IsSuccessStatusCode)
             {
-                client.BaseAddress = new Uri("http://localhost:44376");
-
-                var response = await client.GetAsync("/VaerktoejsKasse");
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    
-                }
-
-                var json = await response.Content.ReadAsStringAsync();
-                    //Result.Content.ReadAsStringAsync();
-
-                var result = JsonSerializer.Deserialize<List<VaerktoejsKasseModel>>(json);
-
-                LocalModels = result;
-                return Page();
+                LocalModels = await response.Content.ReadFromJsonAsync<List<VaerktoejsKasseModel>>();
             }
+            return Page();
+            
         }
 
     }

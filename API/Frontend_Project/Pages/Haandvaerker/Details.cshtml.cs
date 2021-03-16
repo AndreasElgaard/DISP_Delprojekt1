@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Frontend_Project.Datamodels;
@@ -14,29 +15,34 @@ namespace Frontend_Project.Pages.Haandvaerker
     public class DetailsModel : PageModel
     {
         public HaandvaerkerModel localModel { get; set; }
+        public HttpClient client { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public DetailsModel(HttpClient client)
         {
-            using (var client = new HttpClient())
-            { 
-            client.BaseAddress = new Uri("http://localhost:44376");
+            this.client = client;
+        }
+        public async Task<IActionResult> OnGet(int id)
+        {
+            
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-            string reqq = "/Haandvaerker" + localModel.ID.ToString();
+            string reqq = "api/Haandvaerker/" + id.ToString();
 
-            var response = client.GetAsync(reqq);
+            var response = await client.GetAsync(reqq);
 
-             var json = await response.Result.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
+            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
 
-             var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
+            if (response.IsSuccessStatusCode)
+            {
+                localModel = await response.Content.ReadFromJsonAsync<HaandvaerkerModel>();
+            }
 
-             localModel = result;
 
              if (localModel == null)
              {
-                 return RedirectToPage("/Index");
+                 return RedirectToPage("/Haandvaerker/Index");
              }
-
-            }
 
             return Page();
 
