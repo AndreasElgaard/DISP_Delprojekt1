@@ -65,7 +65,7 @@ namespace Frontend_Project.Pages.Haandvaerker
             
                 client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "api/Haandvaerker/" + localModel.HaandvaerkerId.ToString();
+                string reqq = "api/Haandvaerker/" + localModel.haandvaerkerId.ToString();
 
                 var response = client.PutAsync(reqq, content);
 

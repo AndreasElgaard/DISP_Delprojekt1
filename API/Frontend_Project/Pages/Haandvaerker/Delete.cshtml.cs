@@ -18,6 +18,7 @@ namespace Frontend_Project.Pages.Haandvaerker
         {
             this.client = client;
         }
+        [BindProperty]
         public HaandvaerkerModel localModel { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -49,29 +50,18 @@ namespace Frontend_Project.Pages.Haandvaerker
 
         }
 
-        public async Task<IActionResult> OnDelete()
+        public async Task<IActionResult> OnPost()
         {
             
-                client.BaseAddress = new Uri("http://localhost:44376/");
+                client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "api/Haandvaerker/" + localModel.HaandvaerkerId.ToString();
+                string reqq = "api/Haandvaerker/" + localModel.haandvaerkerId.ToString();
 
-                var response = client.DeleteAsync(reqq);
+                var response = await client.DeleteAsync(reqq);
 
-                var json = await response.Result.Content.ReadAsStringAsync();
+                response.EnsureSuccessStatusCode();
 
-                var result = JsonSerializer.Deserialize<HaandvaerkerModel>(json);
-
-                localModel = result;
-
-                if (localModel == null)
-                {
-                    return RedirectToPage("/Haandvaerker/Index");
-                }
-
-            
-
-            return Page();
+                return RedirectToPage("/Haanvaerker/Index");
         }
     }
 }

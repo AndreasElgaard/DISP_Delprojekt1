@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Linq
 @using System.Reflection
 @model Frontend_Project.Pages.Haandvaerker.CreateModel
 @{
@@ -13,26 +14,30 @@
         <div class="col-md-2">
             <form method="post">
                 <div class="form-group">
-                
+
                     <label for="Fornavn" class="control-label">Fornavn</label>
-                    
-                    <input type="text" asp-for="LocalModel.HVFornavn" />
+
+                    <input type="text" asp-for="LocalModel.hvFornavn" />
                 </div>
                 <div class="form-group">
                     <label for="Efternavn" class="control-label">Efternavn</label>
-                    <input type="text" asp-for="LocalModel.HVEfternavn" />
+                    <input type="text" asp-for="LocalModel.hvEfternavn" />
                 </div>
                 <div class="form-group">
                     <label for="Ansættelsesdato" class="control-label">Ansættelsesdato</label>
-                    <input type="datetime" asp-for="LocalModel.HVAnsaettelsedato" />
+                    <input type="datetime" asp-for="LocalModel.hvAnsaettelsedato" />
                 </div>
                 <div class="form-group">
                     <label for="Fagområde" class="control-label">Fagområde</label>
-                    <input type="text" asp-for="LocalModel.HVFagomraade"/>
+                    <input type="text" asp-for="LocalModel.hvFagomraade" />
                 </div>
                 <div class="form-group">
                     <label for="ID" class="control-label">ID</label>
-                    <input type="number" asp-for="LocalModel.HaandvaerkerId" />
+                    <input type="number" asp-for="LocalModel.haandvaerkerId" />
+                </div>
+                <div class="form-group">
+                    <label for="ID" class="control-label">Værktøjskasse ID</label>
+                    <input type="number" asp-for="localID" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>

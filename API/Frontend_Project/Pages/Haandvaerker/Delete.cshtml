@@ -8,28 +8,28 @@
 <h1>Sletning</h1>
 
 <div>
-    <h4>Er du sikker på at du vil slsette Håndværkeren @Model.localModel.HVFornavn ?</h4>
+    <h4>Er du sikker på at du vil slsette Håndværkeren @Model.localModel.hvFornavn ?</h4>
     <hr />
     <form method="post">
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.HVFornavn)
+                @Html.DisplayNameFor(model => model.localModel.hvFornavn)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.HVEfternavn)
+                @Html.DisplayFor(model => model.localModel.hvEfternavn)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.HVAnsaettelsedato)
+                @Html.DisplayNameFor(model => model.localModel.hvAnsaettelsedato)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.HVFagomraade)
+                @Html.DisplayFor(model => model.localModel.hvFagomraade)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.HaandvaerkerId)
+                @Html.DisplayNameFor(model => model.localModel.haandvaerkerId)
             </dt>
 
         </dl>
         <button class="btn btn-info" type="submit">Ja</button>
-        <button class="btn btn-info" asp-page="/Haandvaerker/Details" asp-route-id="@Model.localModel.HaandvaerkerId">Nej</button>
+        <button class="btn btn-info" asp-page="/Haandvaerker/Details" asp-route-id="@Model.localModel.haandvaerkerId">Nej</button>
     </form>
 </div>

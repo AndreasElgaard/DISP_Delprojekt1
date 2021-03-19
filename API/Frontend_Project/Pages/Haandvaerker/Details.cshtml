@@ -3,37 +3,65 @@
 @{
     ViewData["Title"] = "Detaljeret oversigt";
 }
-@RouteData.Values["ID"]
+
 
 
     <h1>Details</h1>
 
-    <div>
-        <h4>Håndværkeren @Model.localModel.HVFornavn</h4>
+    <div class="row">
+        <h4>Håndværkeren @Model.localModel.hvFornavn</h4>
         <hr />
-        <dl class="col">
-            <dt class="row">
-                @Html.DisplayNameFor(model => model.localModel.HVFornavn)
-            </dt>
-            <dd class="row">
-                @Html.DisplayFor(model => model.localModel.HVEfternavn)
-            </dd>
-            <dt class="row">
-                @Html.DisplayNameFor(model => model.localModel.HVAnsaettelsedato)
-            </dt>
-            <dd class="row">
-                @Html.DisplayFor(model => model.localModel.HVFagomraade)
-            </dd>
-            <dt class="row">
-                @Html.DisplayNameFor(model => model.localModel.HaandvaerkerId)
-            </dt>
-            @*<dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.Vaerktoejskasse.id)
-            </dt>*@
-        </dl>
+    <div class="col col-sm col-lg col-xl col-md p-5">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>
+                    Fornavn
+                </th>
+                <th>
+                    Efternavn
+                </th>
+                <th>
+                    Ansættelsesdato
+                </th>
+                <th>
+                    Fagområde
+                </th>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Værtktøjskasse ID
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    @Model.localModel.hvFornavn
+                </td>
+                <td>
+                    @Model.localModel.hvEfternavn </td>
+                <td>
+                    @Model.localModel.hvAnsaettelsedato</td>
+                <td>
+                    @Model.localModel.hvFagomraade
+                </td>
+                <td>
+                    @Model.localModel.haandvaerkerId
+                </td>
+                <td>
+                    @Model.localModel.vaerktoejskasse
+                </td>
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
     </div>
     <div>
-    <a class="btn btn-info" asp-page="/Haandvaerker/Edit" asp-route-id="@Model.localModel.HaandvaerkerId">Edit</a>
-    <a class="btn btn-primary" asp-page="/Haandvaerker/Delete" asp-route-id="@Model.localModel.HaandvaerkerId">Delete</a>
+    <a class="btn btn-info" asp-page="/Haandvaerker/Edit" asp-route-id="@Model.localModel.haandvaerkerId">Edit</a>
+    <a class="btn btn-primary" asp-page="/Haandvaerker/Delete" asp-route-id="@Model.localModel.haandvaerkerId">Delete</a>
     <a asp-page="/Haandvaerker/Index">Back to List</a>
 </div>

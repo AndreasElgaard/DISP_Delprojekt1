@@ -14,23 +14,23 @@
 
                     <label for="Fornavn" class="control-label">Fornavn</label>
 
-                    <input type="text" asp-for="localModel.HVFornavn" placeholder="@Model.localModel.HVFornavn" />
+                    <input type="text" asp-for="localModel.hvFornavn" placeholder="@Model.localModel.hvFornavn" />
                 </div>
                 <div class="form-group">
                     <label for="Efternavn" class="control-label">Efternavn</label>
-                    <input type="text" asp-for="localModel.HVEfternavn" placeholder="@Model.localModel.HVEfternavn" />
+                    <input type="text" asp-for="localModel.hvEfternavn" placeholder="@Model.localModel.hvEfternavn" />
                 </div>
                 <div class="form-group">
                     <label for="Ansættelsesdato" class="control-label">Ansættelsesdato</label>
-                    <input type="datetime" asp-for="localModel.HVAnsaettelsedato" placeholder="@Model.localModel.HVAnsaettelsedato" />
+                    <input type="datetime" asp-for="localModel.hvAnsaettelsedato" placeholder="@Model.localModel.hvAnsaettelsedato" />
                 </div>
                 <div class="form-group">
                     <label for="Fagområde" class="control-label">Fagområde</label>
-                    <input type="text" asp-for="localModel.HVFagomraade" placeholder="@Model.localModel.HVFagomraade" />
+                    <input type="text" asp-for="localModel.hvFagomraade" placeholder="@Model.localModel.hvFagomraade" />
                 </div>
                 <div class="form-group">
                     <label for="ID" class="control-label">ID</label>
-                    <input type="number" asp-for="localModel.HaandvaerkerId" placeholder="@Model.localModel.HaandvaerkerId" />
+                    <input type="number" asp-for="localModel.haandvaerkerId" placeholder="@Model.localModel.haandvaerkerId" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>
@@ -39,6 +39,6 @@
         </div>
     </div>
     <div>
-        <a class="btn btn-secondary" asp-page="/Haandvaerker/Details" asp-route-id="localModel.HaandvaerkerId">Tilbage</a>
+        <a class="btn btn-secondary" asp-page="/Haandvaerker/Details" asp-route-id="localModel.haandvaerkerId">Tilbage</a>
     </div>
 </div>

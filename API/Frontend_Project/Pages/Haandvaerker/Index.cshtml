@@ -33,6 +33,9 @@
                     <th>
                         ID
                     </th>
+                    <th>
+                        Værtktøjskasse ID
+                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -41,22 +44,25 @@
                 {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HVFornavn)
+                        @Html.DisplayFor(modelItem => item.hvFornavn)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HVEfternavn)
+                        @Html.DisplayFor(modelItem => item.hvEfternavn)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HVAnsaettelsedato)
+                        @Html.DisplayFor(modelItem => item.hvAnsaettelsedato)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HVFagomraade)
+                        @Html.DisplayFor(modelItem => item.hvFagomraade)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HaandvaerkerId)
+                        @Html.DisplayFor(modelItem => item.haandvaerkerId)
                     </td>
                     <td>
-                        <a class="btn btn-secondary shadow" asp-page="/Haandvaerker/Details" asp-route-id="@item.HaandvaerkerId">Choose</a>
+                        @Html.DisplayFor(modelItem => item.vaerktoejskasse)
+                    </td>
+                    <td>
+                        <a class="btn btn-secondary shadow" asp-page="/Haandvaerker/Details" asp-route-id="@item.haandvaerkerId">Choose</a>
                     </td>
                 </tr>
                 }
