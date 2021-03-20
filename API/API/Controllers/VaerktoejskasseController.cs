@@ -58,7 +58,7 @@ namespace API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Post([FromBody] VaerToejsKasseRequest vaerktoejskasseRequest)
+        public async Task<ActionResult> Post([FromBody] VaerktoejsKasseRequest vaerktoejskasseRequest)
         {
 
             var model = _mapper.Map<Vaerktoejskasse>(vaerktoejskasseRequest);
@@ -80,7 +80,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Put([FromBody] VaerToejsKasseRequest vaerktoejskasseRequest)
+        public async Task<ActionResult> Put([FromBody] VaerktoejsKasseRequest vaerktoejskasseRequest)
         {
 
             var model = _mapper.Map<Vaerktoejskasse>(vaerktoejskasseRequest);

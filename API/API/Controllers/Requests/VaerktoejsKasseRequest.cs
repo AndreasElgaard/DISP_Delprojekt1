@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers.Requests
 {
-    public class VaerToejsKasseRequest
+    public class VaerktoejsKasseRequest
     {
         public DateTime VTKAnskaffet { get; set; }
         public string VTKFabrikat { get; set; }

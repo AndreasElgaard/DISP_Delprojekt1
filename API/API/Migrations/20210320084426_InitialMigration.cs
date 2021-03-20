@@ -51,11 +51,7 @@ namespace API.Migrations
                 name: "Vaerktøjer",
                 columns: table => new
                 {
-<<<<<<< HEAD:API/API/Migrations/20210320084426_InitialMigration.cs
                     Id = table.Column<int>(type: "int", nullable: false)
-=======
-                    VTId = table.Column<int>(type: "int", nullable: false)
->>>>>>> 7134126408c0427a8747aa9f0721072147368d80:API/API/Migrations/20210311143930_InitialCommit.cs
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),
