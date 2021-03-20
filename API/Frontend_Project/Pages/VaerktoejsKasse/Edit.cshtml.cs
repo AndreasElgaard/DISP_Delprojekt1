@@ -67,9 +67,11 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
             string reqq = "/api/VaerktoejsKasse/" + LocalModel.VTKId.ToString();
 
-            var response = client.PutAsync(reqq, content);
+            var response = await client.PutAsync(reqq, content);
 
-            if (response.Result.StatusCode != HttpStatusCode.OK)
+            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
             {
                 return Page();
             }

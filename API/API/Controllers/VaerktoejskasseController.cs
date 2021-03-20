@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using API.Repository;
 using API.Models;
 using Microsoft.AspNetCore.Http;
+using AutoMapper;
+using API.Controllers.Requests;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +18,12 @@ namespace API.Controllers
     public class VaerktoejskasseController : ControllerBase
     {
         private readonly IVaerkToejsKasseRepository _repository;
+        private readonly IMapper _mapper;
 
-        public VaerktoejskasseController(IVaerkToejsKasseRepository repository)
+        public VaerktoejskasseController(IVaerkToejsKasseRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         // GET: api/<ToolboxController>
@@ -54,11 +58,14 @@ namespace API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Post([FromBody] Vaerktoejskasse vaerktoejskasse)
+        public async Task<ActionResult> Post([FromBody] VaerktoejsKasseRequest vaerktoejskasseRequest)
         {
+
+            var model = _mapper.Map<Vaerktoejskasse>(vaerktoejskasseRequest);
+
             try
             {
-                await _repository.Add(vaerktoejskasse);
+                await _repository.Add(model);
             }
             catch
             {
@@ -73,11 +80,14 @@ namespace API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Put([FromBody] Vaerktoejskasse vaerktoejskasse)
+        public async Task<ActionResult> Put([FromBody] VaerktoejsKasseRequest vaerktoejskasseRequest)
         {
+
+            var model = _mapper.Map<Vaerktoejskasse>(vaerktoejskasseRequest);
+
             try
             {
-                await _repository.Update(vaerktoejskasse);
+                await _repository.Update(model);
             }
             catch
             {

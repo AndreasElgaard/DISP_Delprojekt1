@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using API.DataBaseContext;
 using API.Repository;
+using AutoMapper;
+using API.Mapper;
 
 namespace API
 {
@@ -42,8 +44,14 @@ namespace API
             services.AddTransient<IVaerkToejRepository, VaerkToejRepository>();
             services.AddTransient<IVaerkToejsKasseRepository, VaerkToejsKasseRepository>();
 
+            services.AddAutoMapper(config =>
+            {
+                var mapperConfig = new MapperConfiguration(mc =>
+                {
+                    mc.AddProfile(new MapperConfig());
+                });
+            });
 
-          
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });

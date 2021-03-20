@@ -13,13 +13,28 @@ namespace API.DataBaseContext
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Data Source=Andreas-Laptop;Initial Catalog=DISP_Delprojekt1;Integrated Security=True");
-        //}
 
         public DbSet<Haandvaerker> Haandværkere { get; set; }
         public DbSet<Vaerktoej> Vaerktøjer { get; set; }
         public DbSet<Vaerktoejskasse> Vaerktoejskasser { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Haandvaerker>()
+                .HasOne(a => a.Vaerktoejskasse)
+                .WithOne(b => b.Haandvaerker)
+                .HasForeignKey<Vaerktoejskasse>(b => b.VTKId);
+
+            modelBuilder.Entity<Vaerktoejskasse>()
+                .HasOne(a => a.Haandvaerker)
+                .WithOne(b => b.Vaerktoejskasse)
+                .HasForeignKey<Haandvaerker>(b => b.haandvaerkerId);
+
+            modelBuilder.Entity<Vaerktoejskasse>()
+                .HasMany(a => a.Vaerktoej)
+                .WithOne(b => b.Vaerktoejskasse)
+                .HasForeignKey(b => b.VTId);
+
+        }
     }
 }

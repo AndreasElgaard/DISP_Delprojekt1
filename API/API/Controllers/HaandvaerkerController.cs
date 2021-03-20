@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using API.Repository;
 using API.Models;
 using Microsoft.AspNetCore.Http;
+using API.Controllers.Requests;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +18,12 @@ namespace API.Controllers
     public class HaandvaerkerController : ControllerBase
     {
         private readonly IHaandVaerkerRepository _repository;
+        private readonly IMapper _mapper;
 
-        public HaandvaerkerController(IHaandVaerkerRepository repository)
+        public HaandvaerkerController(IHaandVaerkerRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         // GET: api/<HaandvaerkerController>
@@ -54,11 +58,15 @@ namespace API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Post([FromBody] Haandvaerker haandvaerker)
+        public async Task<ActionResult> Post([FromBody] HaandVaerkerRequest haandvaerkerRequest)
         {
+
+
+            var model = _mapper.Map<Haandvaerker>(haandvaerkerRequest);
+
             try
             {
-                await _repository.Add(haandvaerker);
+                await _repository.Add(model);
             }
             catch
             {
@@ -73,11 +81,14 @@ namespace API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Put([FromBody] Haandvaerker haandvaerker)
+        public async Task<ActionResult> Put([FromBody] HaandVaerkerRequest haandvaerkerRequest)
         {
+
+            var model = _mapper.Map<Haandvaerker>(haandvaerkerRequest);
+
             try
             {
-                await _repository.Update(haandvaerker);
+                await _repository.Update(model);
             }
             catch
             {

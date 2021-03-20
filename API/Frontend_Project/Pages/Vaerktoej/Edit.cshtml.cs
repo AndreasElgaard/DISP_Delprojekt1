@@ -66,9 +66,11 @@ namespace Frontend_Project.Pages.Vaerktoej
 
                 string reqq = "api/Vearktoej/" + LocalModel.VTId.ToString();
 
-                var response = client.PutAsync(reqq, content);
+                var response = await client.PutAsync(reqq, content);
 
-                if (response.Result.StatusCode != HttpStatusCode.OK)
+                response.EnsureSuccessStatusCode();
+
+                if (!response.IsSuccessStatusCode)
                 {
                     return Page();
                 }

@@ -68,9 +68,11 @@ namespace Frontend_Project.Pages.Haandvaerker
 
                 string reqq = "api/Haandvaerker/" + localModel.haandvaerkerId.ToString();
 
-                var response = client.PutAsync(reqq, content);
+                var response = await client.PutAsync(reqq, content);
 
-                if (response.Result.StatusCode != HttpStatusCode.OK)
+                response.EnsureSuccessStatusCode();
+
+                if (!response.IsSuccessStatusCode)
                 {
                     return Page();
                 }
