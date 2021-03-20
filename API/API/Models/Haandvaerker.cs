@@ -9,7 +9,9 @@ namespace API.Models
 {
     public class Haandvaerker
     {
+
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int haandvaerkerId { get; set; }
         public DateTime HVAnsaettelsedato { get; set; }
         public string HVEfternavn { get; set; }

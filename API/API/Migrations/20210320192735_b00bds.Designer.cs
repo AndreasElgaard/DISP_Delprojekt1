@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210320181655_modelsBetter")]
-    partial class modelsBetter
+    [Migration("20210320192735_b00bds")]
+    partial class b00bds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("haandvaerkerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("HVAnsaettelsedato")
@@ -38,14 +39,15 @@ namespace API.Migrations
                     b.Property<string>("HVFornavn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("haandvaerkerId");
 
                     b.ToTable("Haandværkere");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VTId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("VTAnskaffet")
@@ -66,14 +68,14 @@ namespace API.Migrations
                     b.Property<int>("VaerktoejskasseId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("VTId");
 
                     b.ToTable("Vaerktøjer");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VTKId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -93,7 +95,7 @@ namespace API.Migrations
                     b.Property<string>("VTKSerienummer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("VTKId");
 
                     b.ToTable("Vaerktoejskasser");
                 });
@@ -102,7 +104,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
                         .WithOne("Haandvaerker")
-                        .HasForeignKey("API.Models.Haandvaerker", "Id")
+                        .HasForeignKey("API.Models.Haandvaerker", "haandvaerkerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -113,7 +115,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
                         .WithMany("Vaerktoej")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("VTId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

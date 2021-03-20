@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210320110044_foreignkey")]
-    partial class foreignkey
+    [Migration("20210320190953_Iniiiiiiiiiiiiit")]
+    partial class Iniiiiiiiiiiiiit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("haandvaerkerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("HVAnsaettelsedato")
                         .HasColumnType("datetime2");
@@ -40,17 +38,15 @@ namespace API.Migrations
                     b.Property<string>("HVFornavn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("haandvaerkerId");
 
                     b.ToTable("Haandværkere");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("VTId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("VTAnskaffet")
                         .HasColumnType("datetime2");
@@ -70,22 +66,17 @@ namespace API.Migrations
                     b.Property<int>("VaerktoejskasseId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("VaerktoejskasseId");
+                    b.HasKey("VTId");
 
                     b.ToTable("Vaerktøjer");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VTKId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("HaandvaerkerId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("VTKAnskaffet")
                         .HasColumnType("datetime2");
@@ -102,19 +93,27 @@ namespace API.Migrations
                     b.Property<string>("VTKSerienummer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("HaandvaerkerId")
-                        .IsUnique();
+                    b.HasKey("VTKId");
 
                     b.ToTable("Vaerktoejskasser");
+                });
+
+            modelBuilder.Entity("API.Models.Haandvaerker", b =>
+                {
+                    b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
+                        .WithOne("Haandvaerker")
+                        .HasForeignKey("API.Models.Haandvaerker", "haandvaerkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Vaerktoejskasse");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
                     b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
                         .WithMany("Vaerktoej")
-                        .HasForeignKey("VaerktoejskasseId")
+                        .HasForeignKey("VTId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -123,22 +122,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.HasOne("API.Models.Haandvaerker", "Haandvaerker")
-                        .WithOne("Vaerktoejskasse")
-                        .HasForeignKey("API.Models.Vaerktoejskasse", "HaandvaerkerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Haandvaerker");
-                });
 
-            modelBuilder.Entity("API.Models.Haandvaerker", b =>
-                {
-                    b.Navigation("Vaerktoejskasse");
-                });
-
-            modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
-                {
                     b.Navigation("Vaerktoej");
                 });
 #pragma warning restore 612, 618

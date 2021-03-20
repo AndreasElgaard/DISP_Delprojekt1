@@ -47,10 +47,6 @@ namespace Frontend_Project.Pages.Haandvaerker
                 Content = c
             };
 
-
-            //Post modellen til API'et
-            //Console.WriteLine(content);
-            //client.BaseAddress = new Uri("https://localhost:44376");
             
             var response = await client.SendAsync(request);
 

@@ -13,9 +13,8 @@ namespace Frontend_Project.Datamodels
         public string VTKFarve { get; set; }
         public DateTime VTKAnskaffet { get; set; }
         public int? VTKEjesAf { get; set; }
-        public HaandvaerkerModel EjesAfNavigation { get; set; }
         public string VTKSerienummer { get; set; }
-        public HashSet<VaerktoejModel> Vaerktoej { get; set; }
+
         
     }
 }

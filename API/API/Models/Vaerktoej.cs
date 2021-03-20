@@ -10,6 +10,7 @@ namespace API.Models
     public class Vaerktoej
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VTId { get; set; }
         public DateTime VTAnskaffet { get; set; }
         public string VTFabrikat { get; set; }

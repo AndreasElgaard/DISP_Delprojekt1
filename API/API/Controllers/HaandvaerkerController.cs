@@ -62,8 +62,14 @@ namespace API.Controllers
         {
 
 
-            var model = _mapper.Map<Haandvaerker>(haandvaerkerRequest);
-
+            //var model = _mapper.Map<Haandvaerker>(haandvaerkerRequest);
+            var model = new Haandvaerker
+            {
+                HVAnsaettelsedato = haandvaerkerRequest.HVAnsaettelsedato,
+                HVEfternavn = haandvaerkerRequest.HVEfternavn,
+                HVFagomraade = haandvaerkerRequest.HVFagomraade,
+                HVFornavn = haandvaerkerRequest.HVFornavn
+            };
             try
             {
                 await _repository.Add(model);

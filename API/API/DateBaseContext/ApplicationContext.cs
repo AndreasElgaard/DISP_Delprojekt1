@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using API.Models;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace API.DataBaseContext
 
@@ -20,6 +21,13 @@ namespace API.DataBaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Haandvaerker>()
+            //    .Property(u => u.haandvaerkerId).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<Vaerktoejskasse>()
+            //    .Property(u => u.VTKId).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<Vaerktoej>()
+            //    .Property(u => u.VTId).Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+
             modelBuilder.Entity<Haandvaerker>()
                 .HasOne(a => a.Vaerktoejskasse)
                 .WithOne(b => b.Haandvaerker)
@@ -34,6 +42,8 @@ namespace API.DataBaseContext
                 .HasMany(a => a.Vaerktoej)
                 .WithOne(b => b.Vaerktoejskasse)
                 .HasForeignKey(b => b.VTId);
+
+
 
         }
     }

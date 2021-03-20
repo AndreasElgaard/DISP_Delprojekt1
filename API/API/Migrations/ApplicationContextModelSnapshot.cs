@@ -22,6 +22,7 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
                     b.Property<int>("haandvaerkerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("HVAnsaettelsedato")
@@ -44,6 +45,7 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
                     b.Property<int>("VTId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("VTAnskaffet")

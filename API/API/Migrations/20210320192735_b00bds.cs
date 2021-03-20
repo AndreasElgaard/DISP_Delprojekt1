@@ -2,7 +2,7 @@
 
 namespace API.Migrations
 {
-    public partial class foreignkey : Migration
+    public partial class b00bds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
