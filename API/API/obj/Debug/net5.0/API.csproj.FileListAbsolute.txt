@@ -220,3 +220,4 @@ C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\bella\source\repos\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\bella\source\repos\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\bella\source\repos\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.csprojAssemblyReference.cache
