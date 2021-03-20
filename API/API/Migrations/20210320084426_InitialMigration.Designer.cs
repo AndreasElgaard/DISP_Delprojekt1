@@ -4,14 +4,16 @@ using API.DataBaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210320084426_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,9 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("HVAnsaettelsedato")
                         .HasColumnType("datetime2");
@@ -44,7 +48,9 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("VTAnskaffet")
                         .HasColumnType("datetime2");
@@ -66,6 +72,8 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("VaerktoejskasseId");
+
                     b.ToTable("Vaerktøjer");
                 });
 
@@ -75,6 +83,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HaandvaerkerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("VTKAnskaffet")
                         .HasColumnType("datetime2");
@@ -93,25 +104,17 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("HaandvaerkerId")
+                        .IsUnique();
+
                     b.ToTable("Vaerktoejskasser");
-                });
-
-            modelBuilder.Entity("API.Models.Haandvaerker", b =>
-                {
-                    b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
-                        .WithOne("Haandvaerker")
-                        .HasForeignKey("API.Models.Haandvaerker", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vaerktoejskasse");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
                     b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
                         .WithMany("Vaerktoej")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("VaerktoejskasseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -120,8 +123,22 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.Navigation("Haandvaerker");
+                    b.HasOne("API.Models.Haandvaerker", "Haandvaerker")
+                        .WithOne("Vaerktoejskasse")
+                        .HasForeignKey("API.Models.Vaerktoejskasse", "HaandvaerkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
+                    b.Navigation("Haandvaerker");
+                });
+
+            modelBuilder.Entity("API.Models.Haandvaerker", b =>
+                {
+                    b.Navigation("Vaerktoejskasse");
+                });
+
+            modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
+                {
                     b.Navigation("Vaerktoej");
                 });
 #pragma warning restore 612, 618

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210311143930_InitialCommit")]
-    partial class InitialCommit
+    [Migration("20210320110044_foreignkey")]
+    partial class foreignkey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
-                    b.Property<int>("HaandvaerkerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -40,23 +40,17 @@ namespace API.Migrations
                     b.Property<string>("HVFornavn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("HaandvaerkerId");
+                    b.HasKey("Id");
 
                     b.ToTable("Haandværkere");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
-                    b.Property<long>("VTId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("LiggerIvtk")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LiggerIvtkNavigationVTKId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("VTAnskaffet")
                         .HasColumnType("datetime2");
@@ -73,28 +67,28 @@ namespace API.Migrations
                     b.Property<string>("VTType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VTId");
+                    b.Property<int>("VaerktoejskasseId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("LiggerIvtkNavigationVTKId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("VaerktoejskasseId");
 
                     b.ToTable("Vaerktøjer");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.Property<int>("VTKId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EjesAfNavigationHaandvaerkerId")
+                    b.Property<int>("HaandvaerkerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("VTKAnskaffet")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("VTKEjesAf")
-                        .HasColumnType("int");
 
                     b.Property<string>("VTKFabrikat")
                         .HasColumnType("nvarchar(max)");
@@ -108,29 +102,34 @@ namespace API.Migrations
                     b.Property<string>("VTKSerienummer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VTKId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EjesAfNavigationHaandvaerkerId");
+                    b.HasIndex("HaandvaerkerId")
+                        .IsUnique();
 
                     b.ToTable("Vaerktoejskasser");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
-                    b.HasOne("API.Models.Vaerktoejskasse", "LiggerIvtkNavigation")
+                    b.HasOne("API.Models.Vaerktoejskasse", "Vaerktoejskasse")
                         .WithMany("Vaerktoej")
-                        .HasForeignKey("LiggerIvtkNavigationVTKId");
+                        .HasForeignKey("VaerktoejskasseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("LiggerIvtkNavigation");
+                    b.Navigation("Vaerktoejskasse");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.HasOne("API.Models.Haandvaerker", "EjesAfNavigation")
-                        .WithMany("Vaerktoejskasse")
-                        .HasForeignKey("EjesAfNavigationHaandvaerkerId");
+                    b.HasOne("API.Models.Haandvaerker", "Haandvaerker")
+                        .WithOne("Vaerktoejskasse")
+                        .HasForeignKey("API.Models.Vaerktoejskasse", "HaandvaerkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("EjesAfNavigation");
+                    b.Navigation("Haandvaerker");
                 });
 
             modelBuilder.Entity("API.Models.Haandvaerker", b =>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,22 +9,17 @@ namespace API.Models
 {
     public class Vaerktoejskasse
     {
-        public Vaerktoejskasse()
-        {
-            Vaerktoej = new HashSet<Vaerktoej>();
-        }
-
         [Key]
-        public int VTKId { get; set; }
+        public int Id { get; set; }
         public DateTime VTKAnskaffet { get; set; }
         public string VTKFabrikat { get; set; }
-        
-        public int? VTKEjesAf { get; set; }
         public string VTKModel { get; set; }
         public string VTKSerienummer { get; set; }
         public string VTKFarve { get; set; }
-        public Haandvaerker EjesAfNavigation { get; set; }
-        public HashSet<Vaerktoej> Vaerktoej { get; set; }
+
+        public Haandvaerker Haandvaerker { get; set; }
+
+        public List<Vaerktoej> Vaerktoej { get; set; }
     }
 }
 

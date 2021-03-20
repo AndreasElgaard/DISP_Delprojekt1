@@ -4,19 +4,23 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Repository;
 using API.Models;
+using API.Controllers.Requests;
+using AutoMapper;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VearktoejController : ControllerBase
+    public class VaerktoejController : ControllerBase
     {
 
         private readonly IVaerkToejRepository _repository;
+        private readonly IMapper _mapper;
 
-        public VearktoejController(IVaerkToejRepository repository)
+        public VaerktoejController(IVaerkToejRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         // GET: Vearktoej
@@ -51,11 +55,14 @@ namespace API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Post([FromBody] Vaerktoej vaerktoej)
+        public async Task<ActionResult> Post([FromBody] VaerkToejRequest vaerktoejRequest)
         {
+
+            var model = _mapper.Map<Vaerktoej>(vaerktoejRequest);
+
             try
             {
-                await _repository.Add(vaerktoej);
+                await _repository.Add(model);
             }
             catch
             {
@@ -70,11 +77,14 @@ namespace API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Put([FromBody] Vaerktoej vaerktoej)
+        public async Task<ActionResult> Put([FromBody] VaerkToejRequest vaerktoejRequest)
         {
+
+            var model = _mapper.Map<Vaerktoej>(vaerktoejRequest);
+
             try
             {
-                await _repository.Update(vaerktoej);
+                await _repository.Update(model);
             }
             catch
             {

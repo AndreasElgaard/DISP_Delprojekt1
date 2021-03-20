@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class InitialCommit : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace API.Migrations
                 name: "Haandværkere",
                 columns: table => new
                 {
-                    HaandvaerkerId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HVAnsaettelsedato = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HVEfternavn = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -20,68 +20,67 @@ namespace API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Haandværkere", x => x.HaandvaerkerId);
+                    table.PrimaryKey("PK_Haandværkere", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Vaerktoejskasser",
                 columns: table => new
                 {
-                    VTKId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTKAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTKFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VTKEjesAf = table.Column<int>(type: "int", nullable: true),
                     VTKModel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VTKSerienummer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VTKFarve = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EjesAfNavigationHaandvaerkerId = table.Column<int>(type: "int", nullable: true)
+                    HaandvaerkerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vaerktoejskasser", x => x.VTKId);
+                    table.PrimaryKey("PK_Vaerktoejskasser", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vaerktoejskasser_Haandværkere_EjesAfNavigationHaandvaerkerId",
-                        column: x => x.EjesAfNavigationHaandvaerkerId,
+                        name: "FK_Vaerktoejskasser_Haandværkere_HaandvaerkerId",
+                        column: x => x.HaandvaerkerId,
                         principalTable: "Haandværkere",
-                        principalColumn: "HaandvaerkerId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Vaerktøjer",
                 columns: table => new
                 {
-                    VTId = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VTModel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VTSerienr = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VTType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LiggerIvtk = table.Column<int>(type: "int", nullable: true),
-                    LiggerIvtkNavigationVTKId = table.Column<int>(type: "int", nullable: true)
+                    VaerktoejskasseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vaerktøjer", x => x.VTId);
+                    table.PrimaryKey("PK_Vaerktøjer", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vaerktøjer_Vaerktoejskasser_LiggerIvtkNavigationVTKId",
-                        column: x => x.LiggerIvtkNavigationVTKId,
+                        name: "FK_Vaerktøjer_Vaerktoejskasser_VaerktoejskasseId",
+                        column: x => x.VaerktoejskasseId,
                         principalTable: "Vaerktoejskasser",
-                        principalColumn: "VTKId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vaerktoejskasser_EjesAfNavigationHaandvaerkerId",
+                name: "IX_Vaerktoejskasser_HaandvaerkerId",
                 table: "Vaerktoejskasser",
-                column: "EjesAfNavigationHaandvaerkerId");
+                column: "HaandvaerkerId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vaerktøjer_LiggerIvtkNavigationVTKId",
+                name: "IX_Vaerktøjer_VaerktoejskasseId",
                 table: "Vaerktøjer",
-                column: "LiggerIvtkNavigationVTKId");
+                column: "VaerktoejskasseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
