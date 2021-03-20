@@ -52,7 +52,7 @@ namespace API.Migrations
                 name: "Vaerktøjer",
                 columns: table => new
                 {
-                    VTId = table.Column<long>(type: "bigint", nullable: false)
+                    VTId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),

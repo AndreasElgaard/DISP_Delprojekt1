@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Frontend_Project.Datamodels;
@@ -12,6 +13,7 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 {
     public class DeleteModel : PageModel
     {
+        [BindProperty]
         public VaerktoejsKasseModel localModel { get; set; }
         public HttpClient client { get; set; }
 
@@ -22,52 +24,39 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
         public async Task<IActionResult> OnGetAsync(int id)
         {
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "/VaerktoejsKasse/" + localModel.VTKId.ToString();
+            string reqq = "api/Vaerktoejskasse/" + id.ToString();
 
-                var response = client.GetAsync(reqq);
+            var response = await client.GetAsync(reqq);
 
-                var json = await response.Result.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
 
-                var result = JsonSerializer.Deserialize<VaerktoejsKasseModel>(json);
-
-                localModel = result;
-
-                if (localModel == null)
+            if (response.IsSuccessStatusCode)
+            {
+                localModel = await response.Content.ReadFromJsonAsync<VaerktoejsKasseModel>();
+            }
+            if (localModel == null)
                 {
                     return RedirectToPage("/VaerktoejsKasse/Index");
                 }
 
-            
-
-            return Page();
+                return Page();
 
         }
 
-        public async Task<IActionResult> OnDelete()
+        public async Task<IActionResult> OnPost()
         {
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "/VaerktoejsKasse/" + localModel.VTKId.ToString();
+            string reqq = "api/Vaerktoejskasse/" + localModel.VTKId.ToString();
 
-                var response = client.DeleteAsync(reqq);
+            var response = await client.DeleteAsync(reqq);
 
-                var json = await response.Result.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
 
-                var result = JsonSerializer.Deserialize<VaerktoejsKasseModel>(json);
-
-                localModel = result;
-
-                if (localModel == null)
-                {
-                    return RedirectToPage("/VaerktoejsKasse/Index");
-                }
-
-            
-
-            return Page();
+            return RedirectToPage("/VaerktoejsKasse/Index/");
         }
     }
 }

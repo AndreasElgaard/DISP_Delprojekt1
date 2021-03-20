@@ -15,6 +15,7 @@ namespace Frontend_Project.Pages.Haandvaerker
 {
     public class EditModel : PageModel
     {
+        [BindProperty]
         public HaandvaerkerModel localModel { get; set; }
         public HttpClient client { get; set; }
 

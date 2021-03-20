@@ -7,7 +7,7 @@ namespace Frontend_Project.Datamodels
 {
     public class VaerktoejModel
     {
-        public long VTId { get; set; }
+        public int VTId { get; set; }
         public string VTFabrikat { get; set; }
         public string VTModel { get; set; }
         public string VTSerienr { get; set; }

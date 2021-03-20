@@ -10,24 +10,29 @@
 <div>
     <h4>Er du sikker på at du vil slsette Håndværkeren @Model.localModel.hvFornavn ?</h4>
     <hr />
-    <form method="post">
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.hvFornavn)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.hvEfternavn)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.hvAnsaettelsedato)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.hvFagomraade)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.haandvaerkerId)
-            </dt>
+    <form method="post" >
+        <dl class="col">
+            <div class="form-group">
 
+                <label for="Fornavn" class="control-label">Fornavn</label>
+                <input type="text" asp-for="localModel.hvFornavn" placeholder="@Model.localModel.hvFornavn" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="Efternavn" class="control-label">Efternavn</label>
+                <input type="text" asp-for="localModel.hvEfternavn"  placeholder="@Model.localModel.hvEfternavn" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="Ansættelsesdato" class="control-label">Ansættelsesdato</label>
+                <input type="datetime" asp-for="localModel.hvAnsaettelsedato"  placeholder="@Model.localModel.hvAnsaettelsedato" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="Fagområde" class="control-label">Fagområde</label>
+                <input type="text" asp-for="localModel.hvFagomraade"  placeholder="@Model.localModel.hvFagomraade" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="ID" class="control-label">ID</label>
+                <input type="number" asp-for="localModel.haandvaerkerId"  placeholder="@Model.localModel.haandvaerkerId" readonly/>
+            </div>
         </dl>
         <button class="btn btn-info" type="submit">Ja</button>
         <button class="btn btn-info" asp-page="/Haandvaerker/Details" asp-route-id="@Model.localModel.haandvaerkerId">Nej</button>

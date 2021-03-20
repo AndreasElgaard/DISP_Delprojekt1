@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -22,28 +23,24 @@ namespace Frontend_Project.Pages.Vaerktoej
             this.client = client;
             LocalModels = new List<VaerktoejModel>();
         }
-        
 
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet()
         {
-            
-            
-                client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                var response = client.GetAsync("/Vaerktoej");
+        client.BaseAddress = new Uri("https://localhost:44376/");
 
-                if (response.Result.StatusCode != HttpStatusCode.OK)
-                {
 
-                }
+        var response = await client.GetAsync("api/Vearktoej");
 
-                var json = await response.Result.Content.ReadAsStringAsync();
+        response.EnsureSuccessStatusCode();
+        
+        if (response.IsSuccessStatusCode)
+        {
+            LocalModels = await response.Content.ReadFromJsonAsync<List<VaerktoejModel>>();
+        }
 
-                var result = JsonSerializer.Deserialize<List<VaerktoejModel>>(json);
+        return Page();
 
-                LocalModels = result;
-
-            
         }
 
     }

@@ -31,7 +31,7 @@ namespace Frontend_Project.Pages.Haandvaerker
         
         [BindProperty]
         public HaandvaerkerModel LocalModel { get; set; }
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid == false)
             {
@@ -42,9 +42,9 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 client.BaseAddress = new Uri("https://localhost:44376");
 
-                string reqq = "/api/VaerktoejsKasse/" + localID.ToString();
+                string reqG = "/api/VaerktoejsKasse/" + localID.ToString();
 
-                var responseVKT = await client.GetAsync(reqq);
+                var responseVKT = await client.GetAsync(reqG);
 
                 responseVKT.EnsureSuccessStatusCode();
 
@@ -55,17 +55,15 @@ namespace Frontend_Project.Pages.Haandvaerker
                 LocalModel.vaerktoejskasse.Add(locVTK);
             }
 
-            var msg = "{\"hvAnsaettelsedato\":\"2021-03-19T17:41:54.368Z\",\"hvEfternavn\":\"FUCK\",\"hvFagomraade\": \"string\",\"hvFornavn\":\"FUCK\"}";
+            LocalModel.haandvaerkerId = 0;
 
             //Lav modellen om til en JSON string
             string jsonObjekt = JsonSerializer.Serialize(LocalModel);
             var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
 
-            //Post modellen til API'et
-            //Console.WriteLine(content);
-            //client.BaseAddress = new Uri("https://localhost:44376");
 
-             var response = await client.PostAsJsonAsync("/api/Haandvaerker", content);
+            //Post modellen til API'et
+            var response = await client.PostAsJsonAsync("/api/Haandvaerker", content);
 
             response.EnsureSuccessStatusCode();
 
@@ -73,7 +71,34 @@ namespace Frontend_Project.Pages.Haandvaerker
             {
                 return Page();
             }
-              
+
+            var responseGet = await client.GetAsync("api/Haandvaerker");
+
+            response.EnsureSuccessStatusCode();
+            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
+
+            var localList = new List<HaandvaerkerModel>();
+
+            if (response.IsSuccessStatusCode)
+            {
+                localList = await responseGet.Content.ReadFromJsonAsync<List<HaandvaerkerModel>>();
+            }
+
+            LocalModel.haandvaerkerId = localList.Last().haandvaerkerId;
+
+            string jsonObjektPut = JsonSerializer.Serialize(LocalModel);
+            var contentPut = new StringContent(jsonObjektPut, Encoding.UTF8, "application/json");
+
+            //Post modellen til API'et
+
+            //client.BaseAddress = new Uri("https://localhost:44376/");
+
+            string reqq = "api/Haandvaerker/" + LocalModel.haandvaerkerId.ToString();
+
+            var responsePut = await client.PutAsync(reqq, contentPut);
+
+            responsePut.EnsureSuccessStatusCode();
+
             return RedirectToPage("/Haandvaerker/Index");
         }
 

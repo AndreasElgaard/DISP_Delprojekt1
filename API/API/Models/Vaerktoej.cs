@@ -9,7 +9,7 @@ namespace API.Models
     public class Vaerktoej
     {
         [Key]
-        public long VTId { get; set; }
+        public int VTId { get; set; }
         public DateTime VTAnskaffet { get; set; }
         public string VTFabrikat { get; set; }
         public string VTModel { get; set; }
