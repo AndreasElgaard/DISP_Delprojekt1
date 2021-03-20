@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Frontend_Project.Pages.Vaerktoej
 {
     public class EditModel : PageModel
     {
+        [BindProperty]
         public VaerktoejModel LocalModel { get; set; }
         public HttpClient client { get; set; }
 
@@ -24,24 +26,24 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnGetAsync(int id)
         {
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "/Vaerktoej/" + LocalModel.VTId.ToString();
+            string reqq = "api/Vearktoej/" + id.ToString();
 
-                var response = client.GetAsync(reqq);
+            var response = await client.GetAsync(reqq);
 
-                var json = await response.Result.Content.ReadAsStringAsync();
-
-                var result = JsonSerializer.Deserialize<VaerktoejModel>(json);
-
-                LocalModel = result;
-
-                if (LocalModel == null)
-                {
-                    return RedirectToPage("/Index");
-                }
-
+            response.EnsureSuccessStatusCode();
             
+            if (response.IsSuccessStatusCode)
+            {
+                LocalModel = await response.Content.ReadFromJsonAsync<VaerktoejModel>();
+            }
+
+
+            if (LocalModel == null)
+            {
+                return RedirectToPage("/Vearktoej/Index");
+            }
 
             return Page();
 
@@ -60,9 +62,9 @@ namespace Frontend_Project.Pages.Vaerktoej
 
             //Post modellen til API'et
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+                client.BaseAddress = new Uri("https://localhost:44376/");
 
-                string reqq = "/Vaerktoej/" + LocalModel.VTId.ToString();
+                string reqq = "api/Vearktoej/" + LocalModel.VTId.ToString();
 
                 var response = client.PutAsync(reqq, content);
 
@@ -72,7 +74,7 @@ namespace Frontend_Project.Pages.Vaerktoej
                 }
             
 
-            return RedirectToPage("/Vaerktoej/Index");
+            return RedirectToPage("/Vearktoej/Index");
         }
     }
 }

@@ -11,28 +11,32 @@
     <h4>Er du sikker på at du vil slsette værktøjet @Model.localModel.VTId ?</h4>
     <hr />
     <form method="post">
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.VTFabrikat)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTModel)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.VTSerienr)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTType)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTAnskaffet)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.LiggerIvtk)
-            </dt>
+        <dl class="col">
+            <div class="form-group">
+
+                <label for="ID" class="control-label">ID</label>
+                <input type="text" asp-for="localModel.VTId" placeholder="@Model.localModel.VTId" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Model" class="control-label">Model</label>
+                <input type="text" asp-for="localModel.VTModel" placeholder="@Model.localModel.VTModel" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Fabrikant" class="control-label">Fabrikant</label>
+                <input type="text" asp-for="localModel.VTFabrikat" placeholder="@Model.localModel.VTFabrikat" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Serienummer" class="control-label">Serienummer</label>
+                <input type="text" asp-for="localModel.VTSerienr" placeholder="@Model.localModel.VTSerienr" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Type" class="control-label">Type</label>
+                <input type="text" asp-for="localModel.VTType" placeholder="@Model.localModel.VTType" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Anskaffet" class="control-label">Anskaffet</label>
+                <input type="datetime" asp-for="localModel.VTAnskaffet" placeholder="@Model.localModel.VTAnskaffet" readonly />
+            </div>
         </dl>
         <button class="btn btn-info" type="submit">Ja</button>
         <button class="btn btn-info" asp-page="/Vaerktoej/Details" asp-route-id="@Model.localModel.VTId">Nej</button>

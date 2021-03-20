@@ -11,11 +11,6 @@
         <div class="col-md-2">
             <form method="post">
                 <div class="form-group">
-
-                    <label for="id" class="control-label">ID</label>
-                    <input type="number" asp-for="LocalModel.VTKId" placeholder="@Model.LocalModel.VTKId" />
-                </div>
-                <div class="form-group">
                     <label for="Model" class="control-label">Model</label>
                     <input type="text" asp-for="LocalModel.VTKModel" placeholder="@Model.LocalModel.VTKModel" />
                 </div>
@@ -39,7 +34,10 @@
                     <label for="EjesAF" class="control-label">Ejes af</label>
                     <input type="number" asp-for="LocalModel.VTKEjesAf" placeholder="@Model.LocalModel.VTKEjesAf" />
                 </div>
-
+                <div class="form-group">
+                    <label for="ID" class="control-label">ID</label>
+                    <input type="number" asp-for="LocalModel.VTKId" placeholder="@Model.LocalModel.VTKId" readonly />
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>
                 </div>

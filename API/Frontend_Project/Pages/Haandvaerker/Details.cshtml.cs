@@ -38,11 +38,10 @@ namespace Frontend_Project.Pages.Haandvaerker
                 localModel = await response.Content.ReadFromJsonAsync<HaandvaerkerModel>();
             }
 
-
-             if (localModel == null)
-             {
-                 return RedirectToPage("/Haandvaerker/Index");
-             }
+            if (localModel == null)
+            {
+                return RedirectToPage("/Haandvaerker/Index");
+            }
 
             return Page();
 

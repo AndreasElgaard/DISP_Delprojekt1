@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Frontend_Project.Datamodels;
@@ -23,24 +24,24 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnGetAsync(int id)
         {
             
-            client.BaseAddress = new Uri("https://localhost:44376/api");
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-            string reqq = "/Vaerktoej/" + localModel.VTId.ToString();
+            string reqq = "api/Vearktoej/" + id.ToString();
 
-            var response = client.GetAsync(reqq);
+            var response = await client.GetAsync(reqq);
 
-             var json = await response.Result.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
+            
+            if (response.IsSuccessStatusCode)
+            {
+                localModel = await response.Content.ReadFromJsonAsync<VaerktoejModel>();
+            }
 
-             var result = JsonSerializer.Deserialize<VaerktoejModel>(json);
-
-             localModel = result;
-
-             if (localModel == null)
+            if (localModel == null)
              {
                  return RedirectToPage("/Vaerktoej/Index");
              }
 
-            
 
             return Page();
 

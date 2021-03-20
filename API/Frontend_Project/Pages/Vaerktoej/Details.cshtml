@@ -8,35 +8,67 @@
 
     <h1>Details</h1>
 
-    <div>
-        <h4>Værktøj @Model.localModel.VTId</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.VTFabrikat)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTModel)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.localModel.VTSerienr)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTType)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.VTAnskaffet)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.localModel.LiggerIvtk)
-            </dt>
-        </dl>
+<div class="row">
+    <h4>Værktøj @Model.localModel.VTSerienr</h4>
+    <hr />
+    <div class="col col-sm col-lg col-xl col-md p-5">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Fabrikant
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Serienummer
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Anskaffet
+                </th>
+                <th>
+                    Ligger i værktøjskasse
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.localModel.VTId
+                    </td>
+                    <td>
+                        @Model.localModel.VTFabrikat
+                    </td>
+                    <td>
+                        @Model.localModel.VTModel
+                    </td>
+                    <td>
+                        @Model.localModel.VTSerienr
+                    </td>
+                    <td>
+                        @Model.localModel.VTType
+                    </td>
+                    <td>
+                        @Model.localModel.VTAnskaffet
+                    </td>
+                    <td>
+                        @Model.localModel.LiggerIvtk
+                    </td>
+                </tr>
+            
+            </tbody>
+        </table>
     </div>
-    <div>
-    <a class="btn btn-info" asp-route="/Vaerktoej/Edit" asp-route-id="@Model.localModel.VTId">Edit</a>
-    <a class="btn btn-primary" asp-route="/Vaerktoej/Delete" asp-route-id="@Model.localModel.VTId">Delete</a>
+</div>
+<div>
+    <a class="btn btn-info" asp-page="/Vaerktoej/Edit" asp-route-id="@Model.localModel.VTId">Edit</a>
+    <a class="btn btn-primary" asp-page="/Vaerktoej/Delete" asp-route-id="@Model.localModel.VTId">Delete</a>
     <a asp-page="Vaerktoej/Index">Tilbage</a>
 </div>
