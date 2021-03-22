@@ -14,6 +14,7 @@ namespace Frontend_Project.Pages.Vaerktoej
 {
     public class DetailsModel : PageModel
     {
+        [BindProperty]
         public VaerktoejModel localModel { get; set; }
         public HttpClient client { get; set; }
 
@@ -26,7 +27,7 @@ namespace Frontend_Project.Pages.Vaerktoej
             
             client.BaseAddress = new Uri("https://localhost:44376/");
 
-            string reqq = "api/Vearktoej/" + id.ToString();
+            string reqq = "api/Vaerktoej/" + id.ToString();
 
             var response = await client.GetAsync(reqq);
 
