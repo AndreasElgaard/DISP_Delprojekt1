@@ -57,16 +57,6 @@ namespace Frontend_Project.Pages.Vaerktoej
                 vaerktoejsKasseResponse = await response.Content.ReadFromJsonAsync<VaerktoejsKasseResponse>();
             }
 
-            //var localList = new List<VaerktoejModel>();
-            //var vaerktoejsKasseRequest = new VaerktoejsKasseRequest
-            //{
-            //    VTKAnskaffet = vaerktoejsKasseResponse.VTKAnskaffet,
-            //    VTKFabrikat = vaerktoejsKasseResponse.VTKFabrikat,
-            //    VTKFarve = vaerktoejsKasseResponse.VTKFarve,
-            //    VTKModel = vaerktoejsKasseResponse.VTKModel,
-            //    VTKSerienummer = vaerktoejsKasseResponse.VTKSerienummer
-            //};
-
             LocalModel.VaerktoejskasseId = vaerktoejsKasseResponse.VTKId;
 
             string jsonObjekt = JsonSerializer.Serialize(LocalModel);

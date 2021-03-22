@@ -220,4 +220,3 @@ C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.dll
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.pdb
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.genruntimeconfig.cache
-C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.csprojAssemblyReference.cache

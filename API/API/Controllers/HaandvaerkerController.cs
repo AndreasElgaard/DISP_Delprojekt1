@@ -10,7 +10,6 @@ using API.Controllers.Requests;
 using AutoMapper;
 using API.Controllers.Responses;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace API.Controllers
 {
@@ -27,7 +26,6 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/<HaandvaerkerController>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -62,7 +60,6 @@ namespace API.Controllers
             } 
         }
 
-        // GET api/<HaandvaerkerController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -78,15 +75,12 @@ namespace API.Controllers
             return Ok(response);
         }
 
-        // POST api/<HaandvaerkerController>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Post([FromBody] HaandVaerkerRequest haandvaerkerRequest)
         {
 
-
-            //var model = _mapper.Map<Haandvaerker>(haandvaerkerRequest);
             var model = new Haandvaerker
             {
                 HVAnsaettelsedato = haandvaerkerRequest.HVAnsaettelsedato,
@@ -107,7 +101,7 @@ namespace API.Controllers
 
         }
 
-        // PUT api/<HaandvaerkerController>/5
+
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -128,7 +122,6 @@ namespace API.Controllers
             return Ok();
         }
 
-        // DELETE api/<HaandvaerkerController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
