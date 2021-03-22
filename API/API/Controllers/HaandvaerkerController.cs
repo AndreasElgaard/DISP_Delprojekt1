@@ -8,6 +8,7 @@ using API.Models;
 using Microsoft.AspNetCore.Http;
 using API.Controllers.Requests;
 using AutoMapper;
+using API.Controllers.Responses;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,18 +41,41 @@ namespace API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetByName/{name}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<HaandVaerkerResponse> GetByName(string name)
+        {
+            try
+            {
+                var result = _repository.Find(m => m.HVFornavn == name);
+
+                var response = result.Single();
+
+                var responseResult = _mapper.Map<HaandVaerkerResponse>(response);
+
+                return Ok(responseResult);
+
+            } catch (Exception e)
+            {
+                 return NotFound();
+            } 
+        }
+
         // GET api/<HaandvaerkerController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Haandvaerker>> GetById(int id)
+        public async Task<ActionResult<HaandVaerkerResponse>> GetById(int id)
         {
             var result = await _repository.GetById(id);
+
+            var response = _mapper.Map<HaandVaerkerResponse>(result);
 
             if (result == null)
                 return NoContent();
 
-            return Ok(result);
+            return Ok(response);
         }
 
         // POST api/<HaandvaerkerController>

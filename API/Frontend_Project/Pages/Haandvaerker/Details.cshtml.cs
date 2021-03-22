@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
+using API.Controllers.Responses;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,7 +15,7 @@ namespace Frontend_Project.Pages.Haandvaerker
 {
     public class DetailsModel : PageModel
     {
-        public HaandvaerkerModel localModel { get; set; }
+        public HaandVaerkerResponse localModel { get; set; }
         public HttpClient client { get; set; }
 
         public DetailsModel(HttpClient client)
@@ -31,11 +32,10 @@ namespace Frontend_Project.Pages.Haandvaerker
             var response = await client.GetAsync(reqq);
 
             response.EnsureSuccessStatusCode();
-            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
 
             if (response.IsSuccessStatusCode)
             {
-                localModel = await response.Content.ReadFromJsonAsync<HaandvaerkerModel>();
+                localModel = await response.Content.ReadFromJsonAsync<HaandVaerkerResponse>();
             }
 
             if (localModel == null)

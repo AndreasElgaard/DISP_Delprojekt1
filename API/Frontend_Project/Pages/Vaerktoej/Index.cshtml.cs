@@ -30,7 +30,7 @@ namespace Frontend_Project.Pages.Vaerktoej
         client.BaseAddress = new Uri("https://localhost:44376/");
 
 
-        var response = await client.GetAsync("api/Vearktoej");
+        var response = await client.GetAsync("api/Vaerktoej");
 
         response.EnsureSuccessStatusCode();
         

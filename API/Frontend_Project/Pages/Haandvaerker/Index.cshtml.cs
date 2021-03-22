@@ -34,7 +34,6 @@ namespace Frontend_Project.Pages.Haandvaerker
         var response = await client.GetAsync("api/Haandvaerker");
 
         response.EnsureSuccessStatusCode();
-        //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
 
         if (response.IsSuccessStatusCode)
         {

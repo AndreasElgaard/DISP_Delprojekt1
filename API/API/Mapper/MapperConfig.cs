@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using API.Models;
 using API.Controllers.Requests;
+using API.Controllers.Responses;
 
 namespace API.Mapper
 {
@@ -12,9 +13,12 @@ namespace API.Mapper
     {
         public MapperConfig()
         {
-            CreateMap<Haandvaerker, HaandVaerkerRequest>();
-            CreateMap<Vaerktoejskasse, VaerktoejsKasseRequest>();
-            CreateMap<Vaerktoej, VaerkToejRequest>();
+            CreateMap<HaandVaerkerRequest, Haandvaerker>();
+            CreateMap<VaerktoejsKasseRequest, Vaerktoejskasse>();
+            CreateMap<VaerkToejRequest, Vaerktoej>();
+            CreateMap<Haandvaerker, HaandVaerkerResponse>();
+            CreateMap<Vaerktoejskasse, VaerktoejsKasseResponse>();
+            CreateMap<Vaerktoej, VaerktoejsResponse>();
         }
     }
 }

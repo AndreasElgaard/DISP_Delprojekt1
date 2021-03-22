@@ -7,6 +7,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using API.Controllers.Requests;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,8 +19,6 @@ namespace Frontend_Project.Pages.Haandvaerker
     {
         
         public HttpClient client { get; set; }
-        [BindProperty]
-        public int localID { get; set; }
 
         public CreateModel(HttpClient client)
         {
@@ -32,7 +31,7 @@ namespace Frontend_Project.Pages.Haandvaerker
         }
         
         [BindProperty]
-        public HaandvaerkerModel LocalModel { get; set; }
+        public HaandVaerkerRequest LocalModel { get; set; }
 
         public async Task<IActionResult> OnPost()
         {
@@ -46,11 +45,6 @@ namespace Frontend_Project.Pages.Haandvaerker
                 RequestUri = new Uri("https://localhost:44376/api/Haandvaerker"),
                 Content = c
             };
-
-
-            //Post modellen til API'et
-            //Console.WriteLine(content);
-            //client.BaseAddress = new Uri("https://localhost:44376");
             
             var response = await client.SendAsync(request);
 

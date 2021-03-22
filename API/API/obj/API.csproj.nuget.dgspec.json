@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj": {}
+    "C:\\Users\\mads6\\source\\repo\\DISP_Delprojekt1\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj": {
+    "C:\\Users\\mads6\\source\\repo\\DISP_Delprojekt1\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\mads6\\source\\repo\\DISP_Delprojekt1\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\bella\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\obj\\",
+        "projectPath": "C:\\Users\\mads6\\source\\repo\\DISP_Delprojekt1\\API\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\mads6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mads6\\source\\repo\\DISP_Delprojekt1\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bella\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\mads6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -55,17 +50,25 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",

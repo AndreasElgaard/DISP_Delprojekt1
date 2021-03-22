@@ -10,20 +10,20 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210320110044_foreignkey")]
-    partial class foreignkey
+    [Migration("20210322094421_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.3")
+                .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("API.Models.Haandvaerker", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("HaandvaerkerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -40,14 +40,14 @@ namespace API.Migrations
                     b.Property<string>("HVFornavn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("HaandvaerkerId");
 
                     b.ToTable("Haandværkere");
                 });
 
             modelBuilder.Entity("API.Models.Vaerktoej", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VTId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -70,7 +70,7 @@ namespace API.Migrations
                     b.Property<int>("VaerktoejskasseId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("VTId");
 
                     b.HasIndex("VaerktoejskasseId");
 
@@ -79,7 +79,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Vaerktoejskasse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VTKId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -102,7 +102,7 @@ namespace API.Migrations
                     b.Property<string>("VTKSerienummer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("VTKId");
 
                     b.HasIndex("HaandvaerkerId")
                         .IsUnique();

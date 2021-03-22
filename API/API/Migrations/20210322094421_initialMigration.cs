@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace API.Migrations
                 name: "Haandværkere",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    HaandvaerkerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HVAnsaettelsedato = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HVEfternavn = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -20,14 +20,14 @@ namespace API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Haandværkere", x => x.Id);
+                    table.PrimaryKey("PK_Haandværkere", x => x.HaandvaerkerId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Vaerktoejskasser",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    VTKId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTKAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTKFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -38,12 +38,12 @@ namespace API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vaerktoejskasser", x => x.Id);
+                    table.PrimaryKey("PK_Vaerktoejskasser", x => x.VTKId);
                     table.ForeignKey(
                         name: "FK_Vaerktoejskasser_Haandværkere_HaandvaerkerId",
                         column: x => x.HaandvaerkerId,
                         principalTable: "Haandværkere",
-                        principalColumn: "Id",
+                        principalColumn: "HaandvaerkerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -51,7 +51,7 @@ namespace API.Migrations
                 name: "Vaerktøjer",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    VTId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VTAnskaffet = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VTFabrikat = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -62,12 +62,12 @@ namespace API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vaerktøjer", x => x.Id);
+                    table.PrimaryKey("PK_Vaerktøjer", x => x.VTId);
                     table.ForeignKey(
                         name: "FK_Vaerktøjer_Vaerktoejskasser_VaerktoejskasseId",
                         column: x => x.VaerktoejskasseId,
                         principalTable: "Vaerktoejskasser",
-                        principalColumn: "Id",
+                        principalColumn: "VTKId",
                         onDelete: ReferentialAction.Cascade);
                 });
 

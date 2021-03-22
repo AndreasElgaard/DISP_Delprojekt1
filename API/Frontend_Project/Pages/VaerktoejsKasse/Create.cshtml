@@ -11,12 +11,6 @@
     <div class="row">
         <div class="col-md-2">
             <form method="post">
-                @*<div class="form-group">
-
-                    <label for="id" class="control-label">ID</label>
-
-                    <input type="text" asp-for="LocalModel.VTKId" />
-                </div>*@
                 <div class="form-group">
                     <label for="Model" class="control-label">Model</label>
                     <input type="text" asp-for="LocalModel.VTKModel" />
@@ -38,12 +32,8 @@
                     <input type="text" asp-for="LocalModel.VTKSerienummer" />
                 </div>
                 <div class="form-group">
-                    <label for="EjesAf" class="control-label">Ejes Af</label>
-                    <input type="text" asp-for="LocalModel.VTKEjesAf" />
-                </div>
-                <div class="form-group">
-                    <label for="Vaerktoejer" class="control-label">Værktøjer</label>
-                    <input type="text" />
+                    <label for="HaandvaerkerNavn" class="control-label">Haandvaerker Navn</label>
+                    <input type="text" asp-for="HaandvaerkerNavn" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary shadow">Submit</button>

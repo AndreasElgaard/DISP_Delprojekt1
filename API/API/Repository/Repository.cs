@@ -20,8 +20,16 @@ public abstract class Repository<T> : IRepository<T> where T : class
 
     public async Task Add(T entity)
     {
-        await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error",  e);
+        }
+        
     }
 
     public async Task AddRange(IEnumerable<T> entities)

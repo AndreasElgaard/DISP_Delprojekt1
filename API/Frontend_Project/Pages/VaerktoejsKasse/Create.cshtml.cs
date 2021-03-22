@@ -7,6 +7,8 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using API.Controllers.Requests;
+using API.Controllers.Responses;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,8 +19,11 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
     public class CreateModel : PageModel
     {
         [BindProperty]
-        public VaerktoejsKasseModel LocalModel { get; set; }
+        public VaerktoejsKasseRequest LocalModel { get; set; }
         public HttpClient client { get; set; }
+        [BindProperty]
+        public string HaandvaerkerNavn { get; set; }
+        public HaandVaerkerResponse haandvaerker { get; set; }
 
         public CreateModel(HttpClient client)
         {
@@ -32,97 +37,53 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
         public async Task<IActionResult> OnPost()
         {
-            //if (ModelState.IsValid == false)
-            //{
-            //    return Page();
-            //}
-
-            ////Lav modellen om til en JSON string
-            //string jsonObjekt = JsonSerializer.Serialize(LocalModel);
-            //var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
-
-            ////Post modellen til API'et
-            
-            //   client.BaseAddress = new Uri("https://localhost:44376/api");
-
-
-            //    var response = client.PutAsync("/VaerktoejsKasse", content);
-
-            //    if (response.Result.StatusCode != HttpStatusCode.OK)
-            //    {
-            //        return Page();
-            //    }
-            
-
             
             if (ModelState.IsValid == false)
             {
                 return Page();
             }
 
-            //if (localID != null)
-            //{
-            client.BaseAddress = new Uri("https://localhost:44376");
+            client.BaseAddress = new Uri("https://localhost:44376/");
 
-            //    string reqG = "/api/VaerktoejsKasse/" + localID.ToString();
+            var reqq = "api/Haandvaerker/GetByName/" + HaandvaerkerNavn;
 
-            //    var responseVKT = await client.GetAsync(reqG);
-
-            //    responseVKT.EnsureSuccessStatusCode();
-
-            //    var locVTK = await responseVKT.Content.ReadFromJsonAsync<VaerktoejsKasseModel>();
-
-            //    LocalModel.vaerktoejskasse = new HashSet<VaerktoejsKasseModel>();
-
-            //    LocalModel.vaerktoejskasse.Add(locVTK);
-            //}
-
-            LocalModel.VTKId = 0;
-
-            //Lav modellen om til en JSON string
-            string jsonObjekt = JsonSerializer.Serialize(LocalModel);
-            var content = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
-
-
-            //Post modellen til API'et
-            var response = await client.PostAsJsonAsync("/api/Vaerktoejskasse", content);
+            var response = await client.GetAsync(reqq);
 
             response.EnsureSuccessStatusCode();
-
-            if (!response.IsSuccessStatusCode)
-            {
-                return Page();
-            }
-
-            var responseGet = await client.GetAsync("api/Vaerktoejskasse");
-
-            response.EnsureSuccessStatusCode();
-
-            var localList = new List<VaerktoejsKasseModel>();
 
             if (response.IsSuccessStatusCode)
             {
-                localList = await responseGet.Content.ReadFromJsonAsync<List<VaerktoejsKasseModel>>();
+                haandvaerker = await response.Content.ReadFromJsonAsync<HaandVaerkerResponse>();
             }
 
-            LocalModel.VTKId = localList.Last().VTKId;
+            //var localList = new List<VaerktoejModel>();
+            var haandvaerkerRequest = new HaandVaerkerRequest
+            {
+                HVAnsaettelsedato = haandvaerker.HVAnsaettelsedato,
+                HVEfternavn = haandvaerker.HVEfternavn,
+                HVFagomraade = haandvaerker.HVFagomraade,
+                HVFornavn = haandvaerker.HVFornavn,
+            };
 
-            string jsonObjektPut = JsonSerializer.Serialize(LocalModel);
-            var contentPut = new StringContent(jsonObjektPut, Encoding.UTF8, "application/json");
+            LocalModel.Haandvaerker = haandvaerkerRequest;
+            LocalModel.HaandvaerkerId = haandvaerker.HaandvaerkerId;
+            //LocalModel.Vaerktoej = localList;
 
-            //Post modellen til API'et
+            string jsonObjekt = JsonSerializer.Serialize(LocalModel);
+            var c = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://localhost:44376/api/Vaerktoejskasse"),
+                Content = c
+            };
 
-            string reqq = "api/Vaerktoejskasse/" + LocalModel.VTKId.ToString();
+            var responsePost = await client.SendAsync(request);
 
-            var responsePut = await client.PutAsync(reqq, contentPut);
-
-            responsePut.EnsureSuccessStatusCode();
+            responsePost.EnsureSuccessStatusCode();
 
             return RedirectToPage("/Vaerktoejskasse/Index");
-
         }
-
     }
 }

@@ -30,12 +30,6 @@
                     <th>
                         Fagområde
                     </th>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Værtktøjskasse ID
-                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,12 +48,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.hvFagomraade)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.haandvaerkerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.vaerktoejskasse)
                     </td>
                     <td>
                         <a class="btn btn-secondary shadow" asp-page="/Haandvaerker/Details" asp-route-id="@item.haandvaerkerId">Choose</a>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Repository;
 using API.Models;
 using API.Controllers.Requests;
+using API.Controllers.Responses;
 using AutoMapper;
 
 namespace API.Controllers
@@ -41,14 +42,16 @@ namespace API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Vaerktoej>> GetById(int id)
+        public async Task<ActionResult<VaerktoejsResponse>> GetById(int id)
         {
             var result = await _repository.GetById(id);
 
-            if (result == null)
+            var response = _mapper.Map<VaerktoejsResponse>(result);
+
+            if (response == null)
                 return NoContent();
 
-            return Ok(result);
+            return Ok(response);
         }
 
         // GET: Vearktoej/Create

@@ -8,6 +8,7 @@ using API.Models;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
 using API.Controllers.Requests;
+using API.Controllers.Responses;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,18 +41,42 @@ namespace API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetBySerieNummer/{nummer}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<VaerktoejsKasseResponse> GetBySerieNummer(string nummer)
+        {
+            try
+            {
+                var result = _repository.Find(m => m.VTKSerienummer == nummer);
+
+                var response = result.Single();
+
+                var responseResult = _mapper.Map<VaerktoejsKasseResponse>(response);
+
+                return Ok(responseResult);
+
+            }
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+        }
+
         // GET api/<ToolboxController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Vaerktoejskasse>> GetById(int id)
+        public async Task<ActionResult<VaerktoejsKasseResponse>> GetById(int id)
         {
             var result = await _repository.GetById(id);
 
-            if (result == null)
+            var response = _mapper.Map<VaerktoejsKasseResponse>(result);
+
+            if (response == null)
                 return NoContent();
 
-            return Ok(result);
+            return Ok(response);
         }
 
         // POST api/<ToolboxController>

@@ -17,7 +17,7 @@ namespace API.Models
         public string VTSerienr { get; set; }
         public string VTType { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey("VaerktoejskasseId")]
         public int VaerktoejskasseId { get; set; }
         public Vaerktoejskasse Vaerktoejskasse { get; set; }
     }

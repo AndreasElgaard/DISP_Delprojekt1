@@ -17,6 +17,8 @@ namespace API.Models
         public string VTKSerienummer { get; set; }
         public string VTKFarve { get; set; }
 
+        [ForeignKey("HaandvaerkerId")]
+        public int HaandvaerkerId { get; set; }
         public Haandvaerker Haandvaerker { get; set; }
 
         public List<Vaerktoej> Vaerktoej { get; set; }

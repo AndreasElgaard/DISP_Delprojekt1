@@ -19,7 +19,9 @@ namespace API
            var host = CreateHostBuilder(args).Build();
            using (var scope = host.Services.CreateScope())
            {
-               scope.ServiceProvider.GetRequiredService<ApplicationContext>().Database.Migrate();
+               var context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+               context.Database.Migrate();
+               //DbInitializer.Initialize(context);
            }
            host.Run();
 

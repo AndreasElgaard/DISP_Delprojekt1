@@ -20,20 +20,35 @@ namespace API.DataBaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Haandvaerker>()
+            //    .HasOne(a => a.Vaerktoejskasse)
+            //    .WithOne(b => b.Haandvaerker)
+            //    .HasForeignKey<Vaerktoejskasse>(b => b.VTKId)
+            //    .IsRequired(false);
+
+            //modelBuilder.Entity<Vaerktoejskasse>()
+            //    .HasOne(a => a.Haandvaerker)
+            //    .WithOne(b => b.Vaerktoejskasse)
+            //    .HasForeignKey<Haandvaerker>(b => b.HaandvaerkerId)
+            //    .IsRequired(false);
+
+            //modelBuilder.Entity<Vaerktoejskasse>()
+            //    .HasMany(a => a.Vaerktoej)
+            //    .WithOne(b => b.Vaerktoejskasse)
+            //    .HasForeignKey(b => b.VTId)
+            //    .IsRequired(false);
+
             modelBuilder.Entity<Haandvaerker>()
-                .HasOne(a => a.Vaerktoejskasse)
-                .WithOne(b => b.Haandvaerker)
-                .HasForeignKey<Vaerktoejskasse>(b => b.VTKId);
+                .Property(p => p.HaandvaerkerId)
+                .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Vaerktoejskasse>()
-                .HasOne(a => a.Haandvaerker)
-                .WithOne(b => b.Vaerktoejskasse)
-                .HasForeignKey<Haandvaerker>(b => b.haandvaerkerId);
+                .Property(p => p.VTKId)
+                .ValueGeneratedOnAdd(); ;
 
-            modelBuilder.Entity<Vaerktoejskasse>()
-                .HasMany(a => a.Vaerktoej)
-                .WithOne(b => b.Vaerktoejskasse)
-                .HasForeignKey(b => b.VTId);
+            modelBuilder.Entity<Vaerktoej>()
+                .Property(p => p.VTId)
+                .ValueGeneratedOnAdd();
 
         }
     }

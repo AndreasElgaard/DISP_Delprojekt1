@@ -7,6 +7,8 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using API.Controllers.Requests;
+using API.Controllers.Responses;
 using Frontend_Project.Datamodels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,7 +18,13 @@ namespace Frontend_Project.Pages.Vaerktoej
 {
     public class CreateModel : PageModel
     {
-        public VaerktoejModel LocalModel { get; set; }
+        [BindProperty]
+        public VaerkToejRequest LocalModel { get; set; }
+        [BindProperty]
+        public string SerieNummer { get; set; }
+
+        public VaerktoejsKasseResponse vaerktoejsKasseResponse { get; set; }
+
         public HttpClient client { get; set; }
 
         public CreateModel(HttpClient client)
@@ -29,32 +37,53 @@ namespace Frontend_Project.Pages.Vaerktoej
 
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid == false)
             {
                 return Page();
             }
 
-            //Lav modellen om til en JSON string
+            client.BaseAddress = new Uri("https://localhost:44376/");
+
+            var reqq = "api/Vaerktoejskasse/GetBySerieNummer/" + SerieNummer;
+
+            var response = await client.GetAsync(reqq);
+
+            response.EnsureSuccessStatusCode();
+
+            if (response.IsSuccessStatusCode)
+            {
+                vaerktoejsKasseResponse = await response.Content.ReadFromJsonAsync<VaerktoejsKasseResponse>();
+            }
+
+            //var localList = new List<VaerktoejModel>();
+            //var vaerktoejsKasseRequest = new VaerktoejsKasseRequest
+            //{
+            //    VTKAnskaffet = vaerktoejsKasseResponse.VTKAnskaffet,
+            //    VTKFabrikat = vaerktoejsKasseResponse.VTKFabrikat,
+            //    VTKFarve = vaerktoejsKasseResponse.VTKFarve,
+            //    VTKModel = vaerktoejsKasseResponse.VTKModel,
+            //    VTKSerienummer = vaerktoejsKasseResponse.VTKSerienummer
+            //};
+
+            LocalModel.VaerktoejskasseId = vaerktoejsKasseResponse.VTKId;
+
             string jsonObjekt = JsonSerializer.Serialize(LocalModel);
-            var content = new StringContent(jsonObjekt, Encoding.UTF8,"application/json");
+            var c = new StringContent(jsonObjekt, Encoding.UTF8, "application/json");
 
-            //Post modellen til API'et
-            
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://localhost:44376/api/Vaerktoej"),
+                Content = c
+            };
 
+            var responsePost = await client.SendAsync(request);
 
-                var response = client.PutAsync("/Vaerktoej", content);
-
-                if (response.Result.StatusCode != HttpStatusCode.OK)
-                {
-                    return Page();
-                }
-            
+            responsePost.EnsureSuccessStatusCode();
 
             return RedirectToPage("/Vaerktoej/Index");
         }
-
     }
 }

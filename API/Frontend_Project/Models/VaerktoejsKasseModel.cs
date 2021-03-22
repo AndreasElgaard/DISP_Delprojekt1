@@ -15,7 +15,7 @@ namespace Frontend_Project.Datamodels
         public int? VTKEjesAf { get; set; }
         public HaandvaerkerModel EjesAfNavigation { get; set; }
         public string VTKSerienummer { get; set; }
-        public HashSet<VaerktoejModel> Vaerktoej { get; set; }
+        public List<VaerktoejModel> Vaerktoej { get; set; }
         
     }
 }

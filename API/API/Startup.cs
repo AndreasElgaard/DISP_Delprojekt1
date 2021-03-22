@@ -44,13 +44,7 @@ namespace API
             services.AddTransient<IVaerkToejRepository, VaerkToejRepository>();
             services.AddTransient<IVaerkToejsKasseRepository, VaerkToejsKasseRepository>();
 
-            services.AddAutoMapper(config =>
-            {
-                var mapperConfig = new MapperConfiguration(mc =>
-                {
-                    mc.AddProfile(new MapperConfig());
-                });
-            });
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddSwaggerGen(c =>
             {

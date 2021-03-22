@@ -10,7 +10,7 @@ namespace API.Models
     public class Haandvaerker
     {
         [Key]
-        public int haandvaerkerId { get; set; }
+        public int HaandvaerkerId { get; set; }
         public DateTime HVAnsaettelsedato { get; set; }
         public string HVEfternavn { get; set; }
         public string HVFagomraade { get; set; }

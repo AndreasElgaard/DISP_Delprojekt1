@@ -9,7 +9,7 @@
     <h1>Details</h1>
 
     <div class="row">
-        <h4>Håndværkeren @Model.localModel.hvFornavn</h4>
+        <h4>Håndværkeren @Model.localModel.HVFornavn</h4>
         <hr />
     <div class="col col-sm col-lg col-xl col-md p-5">
         <table class="table table-hover">
@@ -27,32 +27,20 @@
                 <th>
                     Fagområde
                 </th>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Værtktøjskasse ID
-                </th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    @Model.localModel.hvFornavn
+                    @Model.localModel.HVFornavn
                 </td>
                 <td>
-                    @Model.localModel.hvEfternavn </td>
+                    @Model.localModel.HVEfternavn </td>
                 <td>
-                    @Model.localModel.hvAnsaettelsedato</td>
+                    @Model.localModel.HVAnsaettelsedato</td>
                 <td>
-                    @Model.localModel.hvFagomraade
-                </td>
-                <td>
-                    @Model.localModel.haandvaerkerId
-                </td>
-                <td>
-                    @Model.localModel.vaerktoejskasse
+                    @Model.localModel.HVFagomraade
                 </td>
             </tr>
             
@@ -61,7 +49,7 @@
     </div>
     </div>
     <div>
-    <a class="btn btn-info" asp-page="/Haandvaerker/Edit" asp-route-id="@Model.localModel.haandvaerkerId">Edit</a>
-    <a class="btn btn-primary" asp-page="/Haandvaerker/Delete" asp-route-id="@Model.localModel.haandvaerkerId">Delete</a>
+    <a class="btn btn-info" asp-page="/Haandvaerker/Edit" asp-route-id="@Model.localModel.HaandvaerkerId">Edit</a>
+    <a class="btn btn-primary" asp-page="/Haandvaerker/Delete" asp-route-id="@Model.localModel.HaandvaerkerId">Delete</a>
     <a asp-page="/Haandvaerker/Index">Back to List</a>
 </div>
