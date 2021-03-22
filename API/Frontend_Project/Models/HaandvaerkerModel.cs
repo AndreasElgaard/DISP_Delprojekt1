@@ -13,8 +13,6 @@ namespace Frontend_Project.Datamodels
         [DataType(DataType.Date)]
         public DateTime hvAnsaettelsedato { get; set; }
         public string hvFagomraade { get; set; }
-        [Key]
         public int haandvaerkerId { get; set; }
-        public HashSet<VaerktoejsKasseModel> vaerktoejskasse { get; set; }
     }
 }

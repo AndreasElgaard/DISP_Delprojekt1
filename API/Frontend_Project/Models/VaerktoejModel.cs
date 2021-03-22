@@ -14,7 +14,6 @@ namespace Frontend_Project.Datamodels
         public string VTType { get; set; }
         public DateTime VTAnskaffet { get; set; }
         public int? LiggerIvtk { get; set; }
-        public VaerktoejsKasseModel LiggerIvtkNavigation { get; set; }
 
     }
 }

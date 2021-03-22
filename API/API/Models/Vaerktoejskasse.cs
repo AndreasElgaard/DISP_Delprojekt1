@@ -10,6 +10,7 @@ namespace API.Models
     public class Vaerktoejskasse
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VTKId { get; set; }
         public DateTime VTKAnskaffet { get; set; }
         public string VTKFabrikat { get; set; }
