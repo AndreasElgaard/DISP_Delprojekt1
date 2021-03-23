@@ -36,8 +36,12 @@ namespace API
 
 
 
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddDbContext<ApplicationContext>(options => 
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
+            sqlServerOptionsAction: sqlOptions =>
+            {
+                sqlOptions.EnableRetryOnFailure(); 
+            }));
 
             //services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IHaandVaerkerRepository, HaandVaerkerRepository>();

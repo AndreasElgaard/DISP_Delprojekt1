@@ -1,25 +1,39 @@
-version: "1"
+version: "3.4"
 services: 
   api:
+    container_name: swtdisp-ap1-gr10-backend
+    image: elgaard1/api
     build: 
-      context: .
-      dockerfile: dockerfile
+      context: . 
+      dockerfile: API/Dockerfile
     ports:
-      - "5000:5000"
+      - 5000:80
+      - 44376:80
     depends_on:
-      - db
-  db:
-    container_name: sql-server-db 
-    image: "mcr.microsoft.com/mssql/server:latest"
-    ports:
-      - "1433:1433"
+      swtdisp-ap1-gr10-database: 
+        condition: service_healthy
+    restart: always
+
+  swtdisp-ap1-gr10-database:
+    container_name: swtdisp-ap1-gr10-database
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
     environment:
-      SA_PASSWORD: "Your_password123"
+      SA_PASSWORD: "secretPassword1!"
       ACCEPT_EULA: "Y"
-  gui:
-    build:
-      context: .
-      dockerfile: dockerfile
     ports:
-      - "8080:8080"
+      - 1433:1433
+    healthcheck:
+        test: "exit 0"
+    restart: always
+
+  swtdisp-ap1-gr10-frontend:
+    container_name: swtdisp-ap1-gr10-frontend
+    image: "elgaard1/frontendproject"
+    build: 
+        context: . 
+        dockerfile: Frontend_Project/Dockerfile
+    ports:
+        - 9000:80
+    restart: always
+
     

@@ -27,7 +27,7 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnGet()
         {
 
-        client.BaseAddress = new Uri("https://localhost:44376/");
+        //client.BaseAddress = new Uri("https://localhost:44376/");
 
 
         var response = await client.GetAsync("api/Vaerktoej");

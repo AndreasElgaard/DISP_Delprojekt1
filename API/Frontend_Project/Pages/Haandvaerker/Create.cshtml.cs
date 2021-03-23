@@ -42,7 +42,7 @@ namespace Frontend_Project.Pages.Haandvaerker
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://localhost:44376/api/Haandvaerker"),
+                RequestUri = new Uri("https://host.docker.internal:5000/api/Haandvaerker"),
                 Content = c
             };
             

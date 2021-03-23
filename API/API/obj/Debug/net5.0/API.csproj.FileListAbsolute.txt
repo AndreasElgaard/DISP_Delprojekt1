@@ -220,3 +220,15 @@ C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.dll
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\ref\API.dll
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.pdb
 C:\Users\mads6\source\repo\DISP_Delprojekt1\API\API\obj\Debug\net5.0\API.genruntimeconfig.cache
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\bin\Debug\net5.0\dist\dist\appsettings.json

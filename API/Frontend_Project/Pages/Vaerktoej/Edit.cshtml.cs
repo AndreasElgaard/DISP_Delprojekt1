@@ -26,7 +26,7 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnGetAsync(int id)
         {
             
-            client.BaseAddress = new Uri("https://localhost:44376/");
+            //client.BaseAddress = new Uri("https://localhost:44376/");
 
             string reqq = "api/Vearktoej/" + id.ToString();
 
@@ -62,7 +62,7 @@ namespace Frontend_Project.Pages.Vaerktoej
 
             //Post modellen til API'et
             
-                client.BaseAddress = new Uri("https://localhost:44376/");
+                //client.BaseAddress = new Uri("https://localhost:44376/");
 
                 string reqq = "api/Vearktoej/" + LocalModel.VTId.ToString();
 

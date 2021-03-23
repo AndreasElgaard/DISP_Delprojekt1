@@ -23,7 +23,7 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnGetAsync(int id)
         {
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+                //client.BaseAddress = new Uri("https://localhost:44376/api");
 
                 string reqq = "/Vaerktoej/" + localModel.VTId.ToString();
 
@@ -49,7 +49,7 @@ namespace Frontend_Project.Pages.Vaerktoej
         public async Task<IActionResult> OnDelete()
         {
             
-                client.BaseAddress = new Uri("https://localhost:44376/api");
+                //client.BaseAddress = new Uri("https://localhost:44376/api");
 
                 string reqq = "/Vaerktoej/" + localModel.VTId.ToString();
 

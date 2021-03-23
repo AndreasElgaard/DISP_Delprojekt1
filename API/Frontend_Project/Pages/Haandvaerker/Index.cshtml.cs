@@ -29,7 +29,7 @@ namespace Frontend_Project.Pages.Haandvaerker
 
         public async Task<IActionResult> OnGetAsync()
         {
-        client.BaseAddress = new Uri("https://localhost:44376/");
+       // client.BaseAddress = new Uri("https://host.docker.internal:5000/");
 
         var response = await client.GetAsync("api/Haandvaerker");
 

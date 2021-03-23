@@ -2,8 +2,8 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 90
+EXPOSE 500
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
@@ -20,3 +20,10 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Frontend_Project.dll"]
+
+#FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim
+#ADD dist /app
+#WORKDIR /app
+#EXPOSE 80 
+##EXPOSE 443
+#ENTRYPOINT [ "dotnet", "Frontend_Project.dll"]

@@ -25,7 +25,7 @@ namespace Frontend_Project.Pages.Haandvaerker
         public async Task<IActionResult> OnGet(int id)
         {
             
-            client.BaseAddress = new Uri("https://localhost:44376/");
+            //client.BaseAddress = new Uri("https://localhost:44376/");
 
             string reqq = "api/Haandvaerker/" + id.ToString();
 

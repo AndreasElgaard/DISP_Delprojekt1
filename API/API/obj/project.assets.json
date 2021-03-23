@@ -3410,11 +3410,12 @@
       ]
     },
     "runtime.native.System/4.3.0": {
-      "sha512": "vLLVujGNaz2mPp/0b/mQZPTKUyhj20n0dLE4MBfgKLHle4QuSEzoLitcSOBYI71WlVrxkDWR8JoyEdT5Mvsk4g==",
+      "sha512": "c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
       "type": "package",
       "path": "runtime.native.system/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -3923,11 +3924,12 @@
       ]
     },
     "System.ComponentModel/4.3.0": {
-      "sha512": "nWrzue8sgBDMZHj7iVk0xHL1Qc00sne78H//HEjWlM9dorIAiB0CJ+9Pa3B61xhm+cmp3V3rA76dm/qDg/kwjA==",
+      "sha512": "VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
       "type": "package",
       "path": "system.componentmodel/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4547,11 +4549,12 @@
       ]
     },
     "System.Dynamic.Runtime/4.3.0": {
-      "sha512": "Z7TAdujuclRkO8B56huxWeVrUZglSkEYXl1gurcMWuNRKUY26MY1mo7SWae8L1pYE1d+lMRJpEnM0JSquzZuRQ==",
+      "sha512": "SNVi1E/vfWUAs/WYKhE9+qlS6KqK0YVhnlT0HQtr8pMIA8YX3lwy3uPMownDwdYISBdmAF/2holEIldVp85Wag==",
       "type": "package",
       "path": "system.dynamic.runtime/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4723,11 +4726,12 @@
       ]
     },
     "System.Globalization.Extensions/4.3.0": {
-      "sha512": "T1ArRAlyuGxtBXeLSefMgzfXyoB97jBcgjlB2X9C1nyp3vPzrGd4K3EKfFSkBKgV0mnWa6b8ERWgk6IlYx71Xg==",
+      "sha512": "FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==",
       "type": "package",
       "path": "system.globalization.extensions/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5311,11 +5315,12 @@
       ]
     },
     "System.Net.NameResolution/4.3.0": {
-      "sha512": "OunmLxQ8hf9aXjg7VKeEdcrKr+TvS4J33RI1Yu8339TNve7mgE516zkTwf1OrghblR9WY1gguU20LfKxoYBddA==",
+      "sha512": "AFYl08R7MrsrEjqpQWTZWBadqXyTzNDaWpMqyxhb0d6sGhV6xMDKueuBXlLL30gz+DIRY6MpdgnHWlCh5wmq9w==",
       "type": "package",
       "path": "system.net.nameresolution/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5704,7 +5709,7 @@
       ]
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
-      "sha512": "vihVklx6DQA0acLLn+0Ry+Am6evILVqgykJsriN4+t8Zynjkp3LdkRl8OByVHZ5HGW67Apkl+Lzx5weSDXZz+Q==",
+      "sha512": "59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==",
       "type": "package",
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
@@ -5749,7 +5754,7 @@
       ]
     },
     "System.Reflection.Emit.Lightweight/4.3.0": {
-      "sha512": "U7X7RspIGVkYXYXiorsgxO+k5ngPbHFOHRhtZAxhPyx3eYuS1loPFPxHhq+R3sB7OmWdSBCtl0ePK3cQ9ArtqQ==",
+      "sha512": "oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
       "type": "package",
       "path": "system.reflection.emit.lightweight/4.3.0",
       "files": [
@@ -5908,11 +5913,12 @@
       ]
     },
     "System.Reflection.TypeExtensions/4.3.0": {
-      "sha512": "nBvmFRPavvRRqj26dO9YGoG4uTGXb9H6wzGkzfSgjHChd57cnKXJwovPmpHbac05jYJzpCCtUoDqwuF1No4T4A==",
+      "sha512": "7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==",
       "type": "package",
       "path": "system.reflection.typeextensions/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8015,27 +8021,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bella\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\bella\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bella\\source\\repos\\DISP_Delprojekt1\\API\\API\\obj\\",
+      "projectPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\git\\DISP_Delprojekt1\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\bella\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -8121,7 +8120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

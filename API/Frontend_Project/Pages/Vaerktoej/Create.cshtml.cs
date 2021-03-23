@@ -44,7 +44,7 @@ namespace Frontend_Project.Pages.Vaerktoej
                 return Page();
             }
 
-            client.BaseAddress = new Uri("https://localhost:44376/");
+            //client.BaseAddress = new Uri("https://localhost:44376/");
 
             var reqq = "api/Vaerktoejskasse/GetBySerieNummer/" + SerieNummer;
 
