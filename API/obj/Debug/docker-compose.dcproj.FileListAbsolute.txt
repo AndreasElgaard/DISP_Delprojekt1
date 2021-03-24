@@ -42,3 +42,8 @@ C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\Frontend_Project.runtimec
 C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\Frontend_Project.exe
 C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\Frontend_Project.dll
 C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\Frontend_Project.pdb
+C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\bin\Debug\dist\dist\dist\appsettings.json

@@ -29,9 +29,9 @@ namespace Frontend_Project.Pages.Haandvaerker
 
         public async Task<IActionResult> OnGetAsync()
         {
-       // client.BaseAddress = new Uri("https://host.docker.internal:5000/");
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
-        var response = await client.GetAsync("api/Haandvaerker");
+            var response = await client.GetAsync("api/Haandvaerker");
 
         response.EnsureSuccessStatusCode();
 

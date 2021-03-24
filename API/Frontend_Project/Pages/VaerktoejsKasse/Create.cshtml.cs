@@ -43,7 +43,7 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
                 return Page();
             }
 
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
             var reqq = "api/Haandvaerker/GetByName/" + HaandvaerkerNavn;
 
@@ -75,7 +75,7 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://localhost:44376/api/Vaerktoejskasse"),
+                RequestUri = new Uri("http://swtdisp-grp10-backend-service:80/api/Vaerktoejskasse"),
                 Content = c
             };
 

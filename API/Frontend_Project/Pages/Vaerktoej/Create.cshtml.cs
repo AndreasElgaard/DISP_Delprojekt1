@@ -44,7 +44,7 @@ namespace Frontend_Project.Pages.Vaerktoej
                 return Page();
             }
 
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
             var reqq = "api/Vaerktoejskasse/GetBySerieNummer/" + SerieNummer;
 
@@ -65,7 +65,7 @@ namespace Frontend_Project.Pages.Vaerktoej
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://localhost:44376/api/Vaerktoej"),
+                RequestUri = new Uri("http://swtdisp-grp10-backend-service:80/api/Vaerktoej"),
                 Content = c
             };
 

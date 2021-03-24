@@ -22,10 +22,10 @@ namespace Frontend_Project.Pages.Vaerktoej
         }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            
-                //client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/Vaerktoej/" + localModel.VTId.ToString();
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
+
+            string reqq = "api/Vaerktoej/" + localModel.VTId.ToString();
 
                 var response = client.GetAsync(reqq);
 
@@ -48,10 +48,10 @@ namespace Frontend_Project.Pages.Vaerktoej
 
         public async Task<IActionResult> OnDelete()
         {
-            
-                //client.BaseAddress = new Uri("https://localhost:44376/api");
 
-                string reqq = "/Vaerktoej/" + localModel.VTId.ToString();
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
+
+            string reqq = "api/Vaerktoej/" + localModel.VTId.ToString();
 
                 var response = client.DeleteAsync(reqq);
 

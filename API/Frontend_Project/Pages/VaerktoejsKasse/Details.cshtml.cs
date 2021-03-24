@@ -24,15 +24,14 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
         }
         public async Task<IActionResult> OnGet(int id)
         {
-            
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
             string reqq = "api/VaerktoejsKasse/" + id.ToString();
 
             var response = await client.GetAsync(reqq);
 
             response.EnsureSuccessStatusCode();
-            //LocalModels = client.GetFromJsonAsync<HaandvaerkerModel>("http://localhost:44376/api/Haandvaerker");
 
             if (response.IsSuccessStatusCode)
             {

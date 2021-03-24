@@ -23,8 +23,8 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
         }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
             string reqq = "api/Vaerktoejskasse/" + id.ToString();
 
@@ -47,8 +47,8 @@ namespace Frontend_Project.Pages.VaerktoejsKasse
 
         public async Task<IActionResult> OnPost()
         {
-            
-            //client.BaseAddress = new Uri("https://localhost:44376/");
+
+            client.BaseAddress = new Uri("http://swtdisp-grp10-backend-service:80/");
 
             string reqq = "api/Vaerktoejskasse/" + localModel.VTKId.ToString();
 

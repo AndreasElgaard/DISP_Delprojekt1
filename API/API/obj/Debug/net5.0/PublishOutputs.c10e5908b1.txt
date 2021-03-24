@@ -1,4 +1,7 @@
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\API.exe
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\web.config
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\web.config
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\appsettings.Development.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\appsettings.json
@@ -6,6 +9,18 @@ C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\API.deps.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\API.runtimeconfig.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\appsettings.Development.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\dist\dist\dist\dist\appsettings.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\API.dll
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\API.runtimeconfig.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\dist\API.pdb

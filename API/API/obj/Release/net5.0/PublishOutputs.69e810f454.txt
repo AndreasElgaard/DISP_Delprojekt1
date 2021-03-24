@@ -1,4 +1,7 @@
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\API.exe
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\web.config
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\web.config
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\web.config
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\web.config
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\appsettings.Development.json
@@ -11,6 +14,18 @@ C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\API.dep
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\API.runtimeconfig.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\appsettings.Development.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\appsettings.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\dist\API.deps.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\dist\API.runtimeconfig.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\dist\appsettings.Development.json
+C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\dist\dist\dist\dist\dist\appsettings.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\API.dll
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\API.runtimeconfig.json
 C:\Users\andre\git\DISP_Delprojekt1\API\API\obj\Docker\publish\API.pdb
