@@ -12,4 +12,4 @@ The project consisted of three deployment models:
 
 2. Then the database, API and frontend project was containerized in docker containers, and deployed locally using docker compose. 
 
-3. Then all three containers was deployed to a kubernetes clusted. 
+3. Then all three containers was deployed to a kubernetes clusted where .yaml scrips was created for the deployments and the services. 
