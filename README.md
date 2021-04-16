@@ -2,8 +2,6 @@
 
 This is a frontend, backend and database solution using microservices and docker containers. 
 
-This project was implemented to get familiar with docker containers and how to deploy them to a kubernetes cluster. 
-
 The project API is implemented using an ASP.NET.CORE API and razor pages for the frontend part. The database is a Microsoft SQL Database. These three was implemented to work independently. 
 
 The project consisted of three deployment models:  
